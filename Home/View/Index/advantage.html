@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{$detailList['title']}</title>
+    <meta name="keywords" content="{$currentCity[1]}出租房租房,{$currentCity[1]}出租房租房网,{$currentCity[1]}出租房租房信息"/>
+    <meta name="description" content="{$currentCity[1]}出租房租房网为您提供最新租房信息，欢迎您来到房丫丫{$currentCity[1]}出租房租房网。"
+    />
+    <link href="__PUBLIC__/img/logo/title.png" type="image/x-icon" rel="icon">
+
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/zufang-detail_v20161216171752.css" media="all"/>
+
+
+    <include file="Public:pub_css"/>
+    <!--<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/CompontsLoader_v20170117143121.css" media="all"/>-->
+
+
+    <!--<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/slidepic/css/style.css">-->
+
+
+    <!--<script type="text/javascript" src="__PUBLIC__/js/slidepic/lib/highlight.pack.js"></script>-->
+    <!--<script type="text/javascript" src="__PUBLIC__/js/slidepic/dist/jquery.terseBanner.min.js"></script>-->
+    <!--<script type="text/javascript" src="__PUBLIC__/js/slidepic/lib/script.js"></script>-->
+
+
+    <script type="text/javascript" src="__PUBLIC__/js/jquery-3.1.1.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/fyy.css">
+
+
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/layui/css/layui.css"/>
+
+    <script type="text/javascript" src="__PUBLIC__/css/layui/layui.js"></script>
+    <script>
+        layui.use(['layer', 'form', 'element'], function () {
+            var layer = layui.layer
+                , form = layui.form()
+                , element = layui.element()
+
+        });
+    </script>
+</head>
+<body>
+<include file="Public:pub_top"/>
+
+
+<!--头部-->
+<div class="header-wrap">
+
+
+    <!--<div class="nav-top-bar fl c_888 f12">-->
+    <!--<a href="" target="_blank"> </a>-->
+    <!--&gt; <a-->
+    <!--href="http://bj.58.com/bj/zufang/"-->
+    <!--target="_blank">北京租房</a>-->
+    <!--&gt; <a-->
+    <!--href=""-->
+    <!--target="_blank">朝阳租房</a>-->
+    <!--&gt; <a-->
+    <!--href=""-->
+    <!--target="_blank">三元桥租房</a>-->
+    <!--</div>-->
+
+
+</div>
+<!--房源信息-->
+<div class="main-wrap">
+    <!--房源题目-->
+    <div class="house-title">
+        <h1 class="c_333 f20">{$detailList['title']}</h1>
+
+        <p class="house-update-info c_888 f12">
+            <!--房源编号：BJCY84756310&nbsp;&nbsp;&nbsp;&nbsp;-->
+            {$detailList['create_time']}发布&nbsp;&nbsp;&nbsp;&nbsp;
+            <!--<em-->
+            <!--id="totalcount">15</em> 次浏览-->
+        </p>
+
+
+    </div>
+    <!--房源基本信息-->
+    <div class="house-basic-info">
+        <div class="house-basic-pic fl">
+            <style>
+                .banner {
+                    width: 480px;
+                    height: 432px;
+                }
+            </style>
+            <div class="banner">
+                <ul>
+                    <if condition="count($picList) gt 0">
+                        <foreach name="picList" item="pic">
+                            <li>
+                                <img style="float:left;" src="{:C('SITE')}{$pic['pic_large']}">
+                            </li>
+
+                            <!--<li><img src="__PUBLIC__/js/slidepic/img/banner-1.jpg"></li>-->
+                            <!--<li><img src="__PUBLIC__/js/slidepic/img/banner-2.jpg"></li>-->
+                            <!--<li><img src="__PUBLIC__/js/slidepic/img/banner-3.jpg"></li>-->
+                            <!--<li><img src="__PUBLIC__/js/slidepic/img/banner-4.jpg"></li>-->
+                            <!--<li><img src="__PUBLIC__/js/slidepic/img/banner-5.jpg"></li>-->
+                            <!--<li><img src="__PUBLIC__/js/slidepic/img/banner-6.jpg"></li>-->
+                        </foreach>
+                        <else/>
+                        <img src="/Public/img/bjpic1.jpg" style="margin-bottom: 10px;">
+
+
+                    </if>
+
+                    <!--<li><img src="__PUBLIC__/js/slidepic/img/banner-1.jpg"></li>-->
+                    <!--<li><img src="__PUBLIC__/js/slidepic/img/banner-2.jpg"></li>-->
+                    <!--<li><img src="__PUBLIC__/js/slidepic/img/banner-3.jpg"></li>-->
+                    <!--<li><img src="__PUBLIC__/js/slidepic/img/banner-4.jpg"></li>-->
+                    <!--<li><img src="__PUBLIC__/js/slidepic/img/banner-5.jpg"></li>-->
+                    <!--<li><img src="__PUBLIC__/js/slidepic/img/banner-6.jpg"></li>-->
+                    <!--<foreach name="picList" item="pic">-->
+                    <!--<li><img src="{$pic['pic_large']}"></li>-->
+                    <!---->
+                    <!--</foreach>-->
+                </ul>
+            </div>
+
+            <script type="text/javascript" src="__PUBLIC__/js/slidepic/dist/jquery.terseBanner.min.js"></script>
+
+            <script>
+                $('.banner').terseBanner();
+            </script>
+
+        </div>
+        <div class="house-basic-right fr">
+            <div class="house-basic-desc">
+                <div class="house-desc-item fl c_333">
+                    <div class="house-pay-way f16"><span class="c_ff552e"><b
+                            class="f36">{$detailList['rent_money']}</b> 元/月</span>&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            class="c_333"></span></div>
+                    <ul class="f14">
+                        <li><span
+                                class="c_888 mr_15">租赁方式：</span><span>{$detailList['chuzu']}</span>
+                        </li>
+                        <li><span class="c_888 mr_15">房屋类型：</span><span>{$detailList['shi']}室{$detailList['ting']}厅{$detailList[wei]}卫                                &nbsp;&nbsp;{$detailList['square']}                                平&nbsp;&nbsp;{$detailList['zhuangxiu']} </span>
+                        </li>
+                        <li><span class="c_888 mr_15">朝向楼层：</span><span>{$detailList['fangxiang']}&nbsp;&nbsp;{$detailList['floor']}层/共{$detailList['total_floor']}层</span>
+                        </li>
+                        <li><span class="c_888 mr_15">所在小区：</span><span><a
+                                class="c_333 ah"
+                                href="" target="_blank"
+                                onclick=""><if condition="$detailList['street'] neq ''">
+                            {$detailList['street']}<else/>暂无描述
+                        </if></a></span>
+                        </li>
+                        <li><span class="c_888 mr_15">所属区域：</span><span>
+                                                                    <span class="dz">{$area[0]['city_name']} </span>&nbsp;&nbsp<span
+                                class="dz">{$area[1]['city_name']} </span>
+                                                            </span>
+                        </li>
+                        <li>
+                            <span class="c_888 mr_15">详细地址：</span><span class="dz">{$detailList['address']} </span>
+
+                        </li>
+                        <li><span class="c_888 mr_15">房屋配套：</span>
+                            <span
+                                    class="c_333 pz">{$fur1}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="house-agent-info fr" id="bigCustomer">
+                    <div class="agent-head-portrait pr">
+                        <a href=""
+                           target="_blank"><img src="/Public/img/user1.png">
+                            <i class="icon2"></i>
+                        </a>
+
+                    </div>
+
+                    <p class="agent-name f16 pr"><a class="c_000" href="" target="_blank">{$detailList['called']}</a>
+                    </p>
+                    <p class="agent-store f12">
+                        <!--<a class="ah" href="" target="_blank">他的帖子</a>&nbsp;&nbsp;-->
+                        <!--<a class="ah" href="" target="_blank">他的信用记录</a>-->
+                    </p>
+
+
+                    <div class="agent-chat">
+                        <a id="" class="bangbang-chat icon" href="javascript:;"></a>
+                        <a id="wxChatBtn" class="wx-chat icon" href="javascript:;"
+                           onclick="clickLog('from=fcpc_detail_bj_weixin')"></a>
+                        <a id="qqChatBtn" class="qq-chat icon" href="javascript:;" target="_blank"
+                           onclick="clickLog('from=fcpc_detail_bj_QQ')"></a>
+
+                    </div>
+
+                    <div id="agent-company-banner"
+                         data-companyid="n_v1bl2lwxqzjxyvl7uo6zsa"
+                         class="f12 c_555 lh18"
+                         onclick="">
+                    </div>
+                </div>
+                <!--end-->
+            </div>
+
+            <div class="house-fraud-tip">
+
+                <!--样式3 直接显示号码 经纪人-->
+                <span class="house-chat-phone pr">
+                <em class="phone-logo pa"><i class="icon"></i></em>
+                <em class=" f36  lh75">{$detailList['phone']}</em></span>
+
+
+                <span class="frand-remarks pr f12">签约前切勿付
+                      <i class="c_ff552e">订金、押金、 <br/>租金</i>等一切费用！务必
+                      <i class="c_ff552e">实地<br/> 看房</i>，查验房东和房屋证件！
+                    <!--<em id="report" class="frand-logo pa f12 c_ff552e"><i class="icon"></i>举报</em>-->
+
+                  </span>
+
+
+            </div>
+        </div>
+        <br class="clear"/>
+    </div>
+    <!--房源描述-->
+    <div class="house-detail-desc">
+        <!--主要描述-->
+        <div class="main-detail-info fl">
+            <ul class="nav-detail-bar f18">
+
+                <li class="on" onclick="clickLog('from=fcpc_detail_bj_fymiaoshu')">
+                    <a id="housedetailNav" href="javascript:;" jumpto="housedetailNav">房源详情</a>
+                </li>
+
+            </ul>
+
+            <!--房屋配置-->
+            <ul class="house-disposal">
+                <!--<li class="bed"><i class="icon"></i>床</li>-->
+                <!--<li class="chest"><i class="icon"></i>衣柜</li>-->
+                <!--<li class="sofa"><i class="icon"></i>沙发</li>-->
+                <!--<li class="telev"><i class="icon"></i>电视</li>-->
+                <!--<li class="icebox"><i class="icon"></i>冰箱</li>-->
+                <!--<li class="washer"><i class="icon"></i>洗衣机</li>-->
+                <!--<li class="air-condition"><i class="icon"></i>空调</li>-->
+                <!--<li class="water-heater"><i class="icon"></i>热水器</li>-->
+                <!--<li class="broadband"><i class="icon"></i>宽带</li>-->
+                <!--<li class="central-heater"><i class="icon"></i>暖气</li>-->
+                <!--<li class="fuel-gas"><i class="icon"></i>可做饭</li>-->
+                <!--<li class="balcony"><i class="icon"></i>阳台</li>-->
+                <!--<li class="toilet"><i class="icon"></i>独立卫生间</li>-->
+                <foreach name="fur2" item="f">
+                    <li class="{$f['name']}"><i class="icon"></i>{$f['val']}</li>
+                </foreach>
+            </ul>
+            <div class="house-word-introduce f16 c_555">
+
+                {$detailList['discribe']}
+            </div>
+            <!--房屋图集-->
+            <ul class="house-pic-list ">
+                <if condition="count($picList) gt 0">
+                    <foreach name="picList" item="pic">
+                        <li>
+                            <img style="margin-bottom: 10px;" src="{:C('SITE')}{$pic['pic_large']}">
+
+                        </li>
+
+                    </foreach>
+
+                    <else/>
+                    <img src="/Public/img/bjpic1.jpg" style="margin-bottom: 10px;">
+
+
+                </if>
+
+
+            </ul>
+
+
+        </div>
+
+
+        <div class="side-right-info fr">
+            <div id="agentOtherHouse" class="agent-other-house"><p class="agent-house-nav f18 c_333">该经纪人的推荐房源</p>
+                <ul class="agent-otherhouse-list">
+
+                    <li><a href="http://cd.58.com/hezu/29144196928462x.shtml" target="_blank"
+                           onclick="clickLog('from=fcpc_detail_cd_jingjiren_tuijianfy_no7')">
+                        <div class="pic fl"><img
+                                src="http://pic6.58cdn.com.cn/anjuke_58/10cb17433ee169c267ead4d47fd13de9?w=336&amp;h=240&amp;crop=1">
+                        </div>
+                        <div class="side-right fl"><p class="info-title c_555 f18">急租 随住随退 新双楠...</p>
+                            <p class="info-area-toward c_888 f12">4室1厅2卫&nbsp;/&nbsp;15平<br>合租&nbsp;/&nbsp;精装修</p>
+                            <p class="info-price c_ff552e f12"><b class="f18">795</b>&nbsp;元/月</p></div>
+                    </a></li>
+                </ul>
+            </div>
+            <div id="superApartment" class="premium-brand-apartment"></div>
+            <!--右侧精选广告-->
+            <div id="jx_right_ad" class="jx_right_ad"><p class="jx_title_nav f18 c_333">推广信息</p>
+                <ul>
+
+
+                    <li>
+                        <a href="http://jxjump.58.com/service?target=INKicKZPP1UEhIHuBQyP3HVk6MOpffA1EwXOx01OD4mAAljxVx4nDXSPwy7LRseGZXP5zocZgGf8gP5tnqzKRKPa0ezDTL1-plLr83R_N1v5BySc5SVsWOMxytthrUmoDGZpDVuK_iByBLAX8fznJQ-kUbMzMyVt8AbXx-JEEmSs57NkdXRy7vg4euiIN6Tsu1MRW_7xEGo&amp;local=&amp;pubid=7881042&amp;from=rightdetail-7&amp;apptype=0&amp;cookie=||https%253A%252F%252Fwww.google.com%252F|c5/ns1iaeSiEffNKCXkiAg"
+                           target="_blank"
+                           onclick="clickLog('from=fc_gz_hz_detail_right_&amp;model=detailright_&amp;pos=7_&amp;alg=IA=CONTENT1.0-IP=G1.0-PF=WBADFANGCHAN_A_PLATFORM&amp;pubid=&amp;idtype=gz&amp;id=29149698402092');">
+                            <div class="pic fl"><img
+                                    src="http://pic4.58cdn.com.cn/anjuke_58/b44fbcfac8049ad769937b9e55a321fd?w=200&amp;h=150&amp;crop=1">
+                            </div>
+                            <div class="side-right fl"><p class="info-title c_555 f14">外双楠 世豪嘉柏 西部智谷 汇点 优博国际 单间550元</p>
+                                <p class="info-price c_ff552e f12 lh30"><b class="f18">550</b>&nbsp;元/月</p></div>
+                        </a></li>
+                    <li>
+                        <a href="http://jxjump.58.com/service?target=INKicKZPP1UEhIHuBQyP3HVk6MOpffA134vUKxjVvP7GKxKIWgFkLnSPwy7LRseGBv7kkJp6dNSnmQkc7C1gI9yPvofCsUAs6VyzvWEtgiL8C1rmW6v-gogqh_LVyJTpkdc31Daa5HV2KtfyW2vS3-X_Tah185gNiy0z410byRgJe4wfMIlDHFMEma0sM7xA91U-APu67hhs3-p21iRM2w&amp;local=&amp;pubid=7862291&amp;from=rightdetail-8&amp;apptype=0&amp;cookie=||https%253A%252F%252Fwww.google.com%252F|c5/ns1iaeSiEffNKCXkiAg"
+                           target="_blank"
+                           onclick="clickLog('from=fc_gz_hz_detail_right_&amp;model=detailright_&amp;pos=8_&amp;alg=IA=CONTENT1.0-IP=G1.0-PF=WBADFANGCHAN_A_PLATFORM&amp;pubid=&amp;idtype=gz&amp;id=29142729079605');">
+                            <div class="pic fl"><img
+                                    src="http://pic2.58cdn.com.cn/anjuke_58/130353bafdf234ee708e062a91490886?w=200&amp;h=150&amp;crop=1">
+                            </div>
+                            <div class="side-right fl"><p class="info-title c_555 f14">优客逸家 浆洗街社区 一环内 西南民大旁 地铁1号线3号线</p>
+                                <p class="info-price c_ff552e f12 lh30"><b class="f18">700</b>&nbsp;元/月</p></div>
+                        </a></li>
+                </ul>
+            </div>
+            <!--右侧其他广告位-->
+            <div id="sideAD" class="s_ad">
+                <div id="jzronghe_ad_right"></div>
+                <div id="direct_ad_right">
+                    <div style="border: 1px solid rgb(241, 241, 241); width: 198px; display: block; word-wrap: break-word; word-break: break-all; margin-right: 10px;      border: 1px solid rgb(241, 241, 241);      width: 198px;      display: block;      word-wrap: break-word;      word-break: break-all;">
+                        <div class="title" style="background:#f5f5f5; height:20px; line-height:20px; padding:0 10px;">
+                            <h3 style="font-size: 12px; font-weight:normal;font-family: &quot;Microsoft YaHei&quot;;font-color: #585858;">
+                                其他人还在看
+                            </h3>
+                        </div>
+                        <ul style="padding-bottom: 0;">
+
+
+
+                            <li style="list-style: none; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #ececec; height: 100px;background-color: white;margin-top: 0px;">
+                                <a href="http://jump.zhineng.58.com/jump?target=pZwY0jCfsvPbsWN3shPfUiqMUvOMXh6dmyOMs1c3nHcQn1DYPHc3PjNOXaO1pZwVUTDQPW0LnH0LPWcQrHNknHnzn10knjbQrHE1njcKPjnYP1DkPWNLnH0zPW0KnHNKnW9QnWD1nHEdnW9YPHbKPHNvTHNdnEDvnjbKnHTzTHDYrj03n1cOnW03nWcKPE7lU-qkmdqzpyICITDQTHDKnWTQPWTOnHFxpZR6UhIOuRqYpyd-g1TLnWKxPLkQTiYQTEDkTHTKTyu6UZP-THEkPjD1ryPBsH-buWNVPAuhuBd6nWE1sHK6nj9LPHRbn1bznTD1njEkPHELrTDQrHm1PWEOnjm1rjEvPj9KTHmQnEDQnjcKnEDKTEDKpZwY0jCfsvPbsWN3shPfUiqCugGds1cOnj9LPjnQP1T3n1mkXaO1pZwVUjqk0v-b5HDLrHmQnHm1rHDOPHTQn1c1PWEYPjn3nHNQnaujUA-WpY-D5Hbhmvqfpv--5gQtpZwY0ZnlszqLIL08uvqfuvQ-shPfUiqtm1NfUMnQpy7-Nv-7uhuriYPmpv-Ku1YqF-KZRD-D5HKbn1TOnADLsHTknjmVPhDLmid-PHFhsHRbuHN3nWD1uHbOrau60ZKYXgK-5HThuyOYpyOhU1YzrHT3P1E1nH0krjnvn7tkFh-dRZ-kuHdMX-tzFMKdmh-b5H03nHbzrjEhUAqWmykqnHTzFMwzmyPopvRO5HcOnj9LPjnQP1T3n1mkgvEkryRWPH9dsHnLm19VPADQnzdBPH-WsH9dPAmzujEYuymzn7tznjDLnjczn1DYPHNzndtQPj9LrjnzrHc1PWb1FhuWpyOhULwO0ANquLCKm1NfUMnQpy7-Nv-7uhuriYPmpv-Ku1YqTHDkPB31ra3QnWE8nHb3THTKnTDVTHK-mH-hPANYmhNLnhPbryE"
+                                   target="_blank" style="display:block;text-decoration: none;text-align:left;">
+
+                                    <img src="http://t4.58cdn.com.cn/bidding/big/n_v1bkuyfvo7pezfqgkyfy6a.jpg"
+                                         style="vertical-align: top;      border: none;      width: 100px;      height: 80px;      display: block;     float: left;margin: 10px 10px 10px 10px;">
+                                    <h3 style="font-size:12px; font-weight:normal;line-height:18px;word-wrap: break-word;color: #585858;font-family: &quot;Microsoft YaHei&quot;;padding-top: 20px;padding-right: 8px;padding-left: 120px;width: 70px;">
+                                        承接办公室装修 店面装修 厂房装
+                                    </h3>
+
+                                </a>
+                            </li>
+
+
+
+                            <li style="list-style: none; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #ececec; height: 100px;background-color: white;margin-top: 0px;">
+                                <a href="http://jump.zhineng.58.com/jump?target=pZwY0jCfsvPbsWN3shPfUiqJpy78mv7Gs1cQnH0LnH9dP1mznjm1XaO1pZwVUTDQPW0LnH0LPWcQrHNknHnzn10knjbQrHE1njcKnWbvnjmzPWn3PH9YPjDKnHNKnWDQP10QrjNLPWckPWnKPHTkTHNknTDvnjbKnHTzTHDYrj03n1cOnW03nWcKnHEKXhOx0APx0h-MpZEKnEDQTHcknHmkrHDzgv6dmyOMXyRxIA-VuRtkP1ckg1ItnEDVnEDKnTDkTE7hmyQ1uEDOn1cknH0znid6ryDQsHEkn1mVmyckuid6uAm3PW93mhcvPvnKnHTLrjmYPHbKnHEQnWEYP10YPj9vnjEkTEDzn1EKnHTzTHDKTEDKTy6YIZTlszqWua3draOWUvYfpARlIitzrHT3P1E1nH0krjnvnZ980v6YUyk40ZPGujYQP1bvnHDvn1bQrHNknHnzn1mYPjE1rjDdnHThEvQGmvVFwjYOFhPfUvVGuHdtxA6YIZK1rBtfILILshIfUvI_uiOWUvYfxAndsvO1ny-6uRPGwyuhHbVjyAVGEy0q5iuEwdwFwjYkujnkrHK6PzYknjTvsHu6PvDVuHNzuBYduANdrjcQnvNOrH9hmgKkIZ-kuHYkFhR8IA-8uhtqnWbkrj0Yn1DLnj91PWKxnauGIRwO0ANquLGxnBukIyFGujYLrjDOnW9YFhQfmv7_5HDknBuY0h7WpvV-XHYzrHT3P1E1nH0krjnvn7qbnj--m1N3PiY1Pvn3sHw6nHnVmWNOmzY3PHwhnhEYPARhnWKxnWTQP1TznWnQPjNdnWPxnHE3P191nWbzn1mOnzuhmv-8uhqYXgK-5yIlTyndsvO1ny-6uRPGwyuhHbVjyAVGEy0q5EDQnjm8n198nHcYsWDOrTDkTHTKsEDzryDYnjTYPjKbP1NdnhE3"
+                                   target="_blank" style="display:block;text-decoration: none;text-align:left;">
+
+                                    <img src="http://t4.58cdn.com.cn/bidding/big/n_v1bl2lwkp4h7dfoc2r6iua.jpg"
+                                         style="vertical-align: top;      border: none;      width: 100px;      height: 80px;      display: block;     float: left;margin: 10px 10px 10px 10px;">
+                                    <h3 style="font-size:12px; font-weight:normal;line-height:18px;word-wrap: break-word;color: #585858;font-family: &quot;Microsoft YaHei&quot;;padding-top: 20px;padding-right: 8px;padding-left: 120px;width: 70px;">
+                                        成都大量出售建材河沙,水泥,新旧
+                                    </h3>
+
+                                </a>
+                            </li>
+                            <li style="list-style: none; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #ececec; height: 100px;background-color: white;margin-top: 0px;">
+                                <a href="http://jump.zhineng.58.com/jump?target=pZwY0jCfsvPbsWN3shPfUiqJpy78mv7Gs1cLPjmOnW0kPWDdrjmYXaO1pZwVUTDQPW0LnH0LPWcQrHNknHnzn10knjbQrHE1njcKPjczP19LPW9OnWnvPWDKnHNKnW0YPWbzP1TvnHN3PWEKPHTkTHNknTDvnjbKnHTzTHDYrj03n1cOnW03nWcKnHNKXhOx0APx0h-MpZEKnEDQTHcknHmkrHDzgv6dmyOMXyRxIA-VuRtkP1ckg1ItnEDVnEDKnTDkTE7hmyQ1uEDOuWNzmHTOmBYQrHubsHE3nW9VmhcvPad-m1P-m1TQnHNLnjDKn1TknWcOnWNKnHb1nWT1nHTOrHmvnj9kTEDzn1EKnHTzTHDKTEDKTy6YIZTlszqWua3draOWUvYfpARlIitzrHT3P1E1nH0krjnvnZ980v6YUyk40ZPGujYQP1bvnHDvn1bQrHNknHnzn1mYPjE1rjDdnHThEvQGmvVFwjYOFhPfUvVGuHdtxA6YIZK1rBtfILILshIfUvI_uiOWUvYfxAndsvO1ny-6uRPGwyuhHbVjyAVGEy0q5iuEwdwFwjYkujnkrHK6PzYknjTvsHu6PvDVuHNzuBYduANdrjcQnvNOrH9hmgKkIZ-kuHYkFhR8IA-8uhtqnWbkrj0Yn1DLnj91PWKxnauGIRwO0ANquLGxnBukIyFGujYLrjDOnW9YFhQfmv7_5HDknBuY0h7WpvV-XHYzrHT3P1E1nH0krjnvn7qbnj--m1N3PiY1Pvn3sHw6nHnVmWNOmzY3PHwhnhEYPARhnWKxnWTQP1TznWnQPjNdnWPxnHE3P191nWbzn1mOnzuhmv-8uhqYXgK-5yIlTyndsvO1ny-6uRPGwyuhHbVjyAVGEy0q5EDQnjm8n198nHcYsWDOrTDkTHTKsE76PynYm1I6nhNvPj7huAnL"
+                                   target="_blank" style="display:block;text-decoration: none;text-align:left;">
+
+                                    <img src="http://t1.58cdn.com.cn/bidding/big/n_v1bl2lwwlajmbvree6rm7q.jpg"
+                                         style="vertical-align: top;      border: none;      width: 100px;      height: 80px;      display: block;     float: left;margin: 10px 10px 10px 10px;">
+                                    <h3 style="font-size:12px; font-weight:normal;line-height:18px;word-wrap: break-word;color: #585858;font-family: &quot;Microsoft YaHei&quot;;padding-top: 20px;padding-right: 8px;padding-left: 120px;width: 70px;">
+                                        专业承接丨钢结构、阳光房、现浇
+                                    </h3>
+
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="final_right_1"></div>
+                <div id="final_right_2">
+                    <div>
+                        <div style="padding-bottom: 10px;">
+                            <iframe allowtransparency="true"
+                                    src="http://static.track.58.com/58_pc_tanxth1_200_200_20170209.html?v=20170213"
+                                    frameborder="0" height="200" hspace="0" marginwidth="0" marginheight="0"
+                                    scrolling="no" vspace="0" width="200" id="taobao_wangmeng_ad"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div id="final_right_oldoutside"></div>
+                <div id="final_right_3">
+                    <div>
+                        <div style="padding-bottom: 10px;">
+                            <iframe allowtransparency="true"
+                                    src=" http://static.track.58.com/58_pc_360th3_200_200_20170209.html?v=20170209"
+                                    frameborder="0" height="200" hspace="0" marginwidth="0" marginheight="0"
+                                    scrolling="no" vspace="0" width="200" id="360_wangmeng_ad"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div id="final_right_4"></div>
+                <div id="final_right_5"></div>
+                <div id="final_right_6"></div>
+                <div id="final_right_7"></div>
+                <div id="final_right_8"></div>
+                <div id="final_right_9"></div>
+                <div id="final_right_10"></div>
+                <div id="final_right_bottom"></div>
+            </div>
+            <!--土巴兔广告位-->
+            <div id="tbt-right-ad" class="tbt-right-ad"></div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!--<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">-->
+    <!--<legend>用户评论</legend>-->
+    <!--</fieldset>-->
+    <!--<fieldset class="layui-elem-field">-->
+    <!--<legend>150***126</legend>-->
+    <!--<div class="layui-field-box">-->
+    <!--你可以在这里放任何内容，比-->
+    <!--</div>-->
+    <!--</fieldset>-->
+
+
+    <!--底部footer-->
+    <div id="footer" class="footer"></div>
+
+    <script>
+        $(function () {
+            var time = new Date();
+            var currentTime = time.getTime();
+            if (localStorage.time == null || localStorage.time == undefined) {
+                localStorage.time = currentTime;
+
+            }
+            var timeDiff = currentTime - localStorage.time;
+            var timeLength = 1000 * 60 * 30;    //超过一小时提醒一次
+//        console.log('当前时间'+currentTime);
+//        console.log('之前时间'+localStorage.time);
+//        console.log('时间差'+timeDiff+'比较值'+timeLength);
+            if (timeDiff > timeLength) {
+                layer.open({
+                    type: 1
+                    ,
+                    title: false //不显示标题栏
+                    ,
+                    closeBtn: true
+                    ,
+                    area: ['300px', '350px']
+                    ,
+                    shade: 0.6
+//                , id: 'LAY_layuipro' //设定一个id，防止重复弹出
+                    ,
+                    btn: ['我知道了']
+                    ,
+                    moveType: 1 //拖拽模式，0或者1
+                    ,
+                    content: '<div style="padding: 50px; line-height: 22px; background-color: #05A89A; color: #fff; font-weight: 300;">你知道吗？亲！<br>租房骗子们的常用话术<br><br>不方便看房<br>先交定金<br>房东人在外地<br>需邮寄合同证件<br>务必请您在实地看房签约前不要支付任何费用！<br></div>'
+                    ,
+                    success: function (layero) {
+                        var btn = layero.find('.layui-layer-btn');
+                        btn.css('text-align', 'center');
+                    }
+                });
+                localStorage.time = currentTime;
+            }
+
+
+        })
+
+
+    </script>
+</body>
+</html>

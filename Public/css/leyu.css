@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* CSS Document */
+* html #doyoo_con{position:absolute;right:expression(eval(document.documentElement.scrollLeft+8));top:expression(eval(document.documentElement.scrollTop+155))}
+#doyoo_con{width:136px;color:#000;top:155px;right:8px;position:fixed; z-index:10000; display:block;cursor: default;padding:0; margin:0;}
+.clearit{ clear:both;height:0; line-height:0;}
+#doyoo_con h3{ background:url(http://bj.xdf.cn/portals/24/leyu.png) 0 0 no-repeat;height:35px;position:relative; margin:0 auto; padding:0;}
+#doyoo_con h3 span{display:block;position:absolute;right:5px;top:-20px;background:url(http://bj.xdf.cn/portals/24/leyu.png) 0 -92px;width:39px;height:13px;cursor:pointer;}
+.looyu_main{ border-left:1px solid #ccc; border-right:1px solid #ccc; margin:0 auto; padding:0; background-color:#ebebeb;width: 136px; display:block;}
+.looyu_main ul{margin:0 auto; padding:0;width: 120px;}
+.looyu_main li{margin:0 auto; padding:0; list-style:none;width: 120px;}
+.looyu_main li a{display:block;text-indent:-9999em;overflow:hidden;width:120px;margin:0 auto;}
+.looyu_footer{background:url(http://bj.xdf.cn/portals/24/leyu.png) 0 -35px;height:44px;}
+/*右侧乐语按钮1样式*/
+.but01 a,.but01 a{ background:url(http://bj.xdf.cn/portals/24/leyu.png) no-repeat 0px -119px;height:36px;}
+.but01 a:hover{ background:url(http://bj.xdf.cn/portals/24/leyu.png) no-repeat -136px -119px;height:36px;}
+/*右侧乐语按钮2样式*/
+.but02 a,.but02 a{ background:url(http://bj.xdf.cn/portals/24/leyu.png) no-repeat 0px -155px;height:36px;}
+.but02 a:hover{ background:url(http://bj.xdf.cn/portals/24/leyu.png) no-repeat -136px -155px;height:36px;}
+/*右侧乐语按钮3样式*/
+.but03 a,.but03 a{ background:url(http://bj.xdf.cn/portals/24/leyu.png) no-repeat 0px -191px;height:36px;}
+.but03 a:hover{ background:url(http://bj.xdf.cn/portals/24/leyu.png) no-repeat -136px -191px;height:36px;}
+/*右侧乐语按钮4样式*/
+.but04 a,.but04 a{ background:url(http://bj.xdf.cn/portals/24/leyu.png) no-repeat 0px -227px;height:36px;}
+.but04 a:hover{ background:url(http://bj.xdf.cn/portals/24/leyu.png) no-repeat -136px -227px;height:36px;}
+/*右侧乐语按钮5样式*/
+.but05 a,.but05 a{ background:url(http://bj.xdf.cn/portals/24/leyu.png) no-repeat 0px -263px; height:37px}
+.but05 a:hover{ background:url(http://bj.xdf.cn/portals/24/leyu.png) no-repeat -136px -263px; height:37px}

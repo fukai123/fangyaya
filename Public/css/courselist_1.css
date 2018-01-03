@@ -1,0 +1,164 @@
+@charset "utf-8";
+/* CSS Document */
+
+.w780{ width:900px;}
+/* 筛选条件 */
+.m-filter-item {  border-bottom:1px solid #f2f2f2; clear: both; min-height: 32px; }
+.m-filter-item dt{ width:70px; text-align:right; float:left; color:#333; line-height:32px;}
+.m-filter-item dd{ margin-left:70px;}
+.m-filter-item dd a{ margin:6px 0px 2px 15px; display:inline-block; line-height:20px; padding:0 6px; color:#666; white-space:nowrap;}
+.m-filter-item dd a:hover{  color:#fff; background-color:#0bc3b3;}
+.m-filter-item dd a.z-cur{ color:#fff; background-color:#0bc3b3;}
+.m-filter-item dd a.z-cur i{ display: inline-block; width: 7px; height: 7px; background-position: -29px -1714px; margin-left: 3px;}
+.m-filter-item .m-filter-items a:hover{ color:#fff;}
+.m-filter-item .m-filter-items a.z-cur{ color:#fff;}
+.m-filter-item .m-filter-items{ background-color:#f7f7f7; margin-top:5px; margin-bottom: 5px; padding:0 0 3px; }
+.m-filter-item .m-filter-items a{ margin-top:5px;color:#666;}
+.m-propertyfilter p{ text-align:center; padding:5px 0;}
+.m-propertyfilter p a{ display:block; color:#666;}
+.m-propertyfilter p i{display:inline-block; width:11px; height:6px; overflow:hidden; position:absolute; margin:5px 0 0 5px; margin-top: 3px\9;}
+.m-propertyfilter .u-unfold i{ background-position:0 -33px;}
+.m-propertyfilter .u-fold i{ background-position:0 0;}
+.m-address-con{ clear:both; overflow:hidden; height:100%; margin:0 0 10px 85px!important; border-top: 1px solid #f2f2f2;}
+.m-address-con a{ float:left; display:inline-block; color:#666!important; height:20px; line-height:20px!important; margin:7px 10px 0 0!important; position:relative; padding:0 5px 0 30px!important;}
+.m-address-con a em{ display:inline-block; width:17px; height:17px; overflow:hidden; background-position:-18px -520px; position:absolute; left:5px; top:2px;}
+.m-address-con a:hover em{background-position:-18px -854px;}
+.m-address-con a.z-cur em{background-position:-18px -553px;}
+.m-address-con a.z-cur,.m-address-con a:hover{ background-color: #fff!important;}
+.m-searchmode { float: right; position: relative; margin-bottom: -2px;}
+.m-searchmode a{ display: block; width: 90px; height: 41px; overflow: hidden; text-indent: -999px; background-position: -85px -357px;}
+.m-searchmode a.z-cur{background-position: -85px -399px; border-left: 1px solid #e5e5e5;}
+.m-brandfilter dt{ line-height: 40px;}
+.m-brandfilter dd a{ padding:0; border: 1px solid #e1e2e1;margin:5px 0px 5px 15px; position: relative;}
+.m-brandfilter dd a:hover,.m-brandfilter dd a.z-cur{ border-color: #0bc3b3;}
+.m-brandfilter dd a.z-cur i{ display:block; width: 16px; height: 16px; position:absolute; background-position: 0 -1711px; right: 0; top: 12px;}
+/* 搜索结果提示 */
+.m-sea-result{padding: 10px 10px; background-color: #f7f7f7; color:#333;}
+.m-sea-result a{ color:#f98d00; margin-right:15px;}
+.m-sea-result a:hover{ text-decoration: underline;}
+/* 按时间搜索 */
+.m-coursesort{ color:#666; border: 1px solid #e1e2e1; min-height: 39px; border-bottom: 2px solid #5fc0b8; background-color: #f7f7f7;}
+.m-coursesort a{ color:#666; }
+.m-coursesort .u-sort,.m-coursesort .u-sort2{ float:left; display:inline; margin:13px 0 0 10px; }
+.m-coursesort .u-sort a:hover{ color:#019286; }.m-coursesort .u-sort2{ margin-left:0;}
+.m-coursesort .u-sort .z-cur{ color:#019286;}
+.m-coursesort .u-sort2 a{ float:left; display:inline-block; padding-right:12px; margin-left:25px;}
+.m-coursesort .u-sort2 a:hover{color:#019286;}
+.m-coursesort .u-sort2 a.sort-asc{ background-position:right -421px;}
+.m-coursesort .u-sort2 a.sort-dec{ background-position:right -468px;}
+.m-coursesort .u-sort2 a.sort-asc2{background-position:right -445px;color:#019286;}
+.m-coursesort .u-sort2 a.sort-dec2{background-position:right -492px;color:#019286;}
+.m-coursesort .u-sort2 a.sort-asc:hover{ background-position:right -445px;}
+.m-coursesort .u-sort2 a.sort-dec:hover{ background-position:right -492px;}
+.m-coursesort .u-date{ float:left; margin:9px 0 9px 35px;}
+.m-coursesort .u-date input{ width:97px; height:20px; overflow:hidden; border: 1px solid #e1e2e1; line-height:20px; font-size:12px; float:left; margin:0 10px 0 0}
+.m-coursesort .u-date em{ float:left; margin:4px 10px 0 0;}
+.m-coursesort .u-date a{ float:left; display:inline-block; border: 1px solid #e1e2e1; width:38px; overflow:hidden; height:20px; text-align:center; line-height:20px;font-size:12px; }
+.m-coursesort .u-date a:hover{ border-color:#05a89a; background-color:#05a89a; color:#fff;}
+.m-coursesort .u-search{ width: 128px; height: 20px; overflow: hidden; float: left; border: 1px solid #e1e2e1; background-color: #fff; margin:9px 0 0 50px; }
+.m-coursesort .u-search .inp-search{ border: none; background:none; float: left; width:110px; height: 20px; font:12px/20px "宋体"; color: #666; text-indent: 5px; overflow: hidden; margin-left: -50px\9;}
+.m-coursesort .u-search .btn-search{ float: left; width: 15px; height: 20px; border: none; background-position: -21px -1678px; cursor:pointer;}
+.m-coursesort .u-showclass{ float:left; margin:11px 12px 0;position: relative;}
+.m-coursesort .u-showclass input{position: absolute;width: 18px;height: 18px;opacity: 0;cursor: pointer; left: 0;}
+.m-coursesort .u-showclass input+span{ padding-left:25px; background-position:-18px -520px;cursor: pointer;height: 18px; float: left;}
+.m-coursesort .u-showclass input:checked+span{ background-position:-18px -553px;}
+.m-coursesort .u-showclass label{ float: left; margin-top: 1px; margin-top: 3px\9;}
+/* 按老师搜索 */
+.m-searchmode-teacher { clear: both; background-color: #fff; border:1px solid #e5e5e5; border-top: none;}
+.m-searchmode-teacher .m-hd{ border-bottom:1px solid #e1e2e1; padding:7px 0; text-align:center;}
+.m-searchmode-teacher .m-hd a{ display:inline-block; padding:0 7px; border-radius:50%; font-family:"Arial"; height:22px; line-height:22px; margin:0 5px; color:#666;}
+.m-searchmode-teacher .m-hd a:hover,.m-searchmode-teacher .m-hd a.z-cur{ background-color:#00b1a2; color:#fff;}
+.m-searchmode-teacher .m-hd > a:first-child{ border-radius:10px; font-family:"Microsoft Yahei";}
+.m-searchmode-teacher .m-bd span{ float:left; display:inline-block; width:15px; height:34px; overflow:hidden; margin-top:55px; cursor:pointer; margin-right:20px;}
+.m-searchmode-teacher .m-bd span.btn-left{ background-position:0 -586px; margin-left:23px;}
+.m-searchmode-teacher .m-bd span.btn-left:hover{ background-position:0 -625px;}
+.m-searchmode-teacher .m-bd span.z-left{ background-position:0 -664px;cursor:default;}
+.m-searchmode-teacher .m-bd span.z-left:hover{ background-position:0 -664px;cursor:default;}
+.m-searchmode-teacher .m-bd span.btn-right{ background-position:-21px -586px; margin-left:20px;}
+.m-searchmode-teacher .m-bd span.btn-right:hover{ background-position:-21px -625px;}
+.m-searchmode-teacher .m-bd span.z-right{ background-position:-21px -664px;cursor:default;}
+.m-searchmode-teacher .m-bd span.z-right:hover{ background-position:-21px -664px;cursor:default;}
+.m-searchmode-teacher .m-imglist li{ width:80px; margin:15px; color:#333;}
+.m-searchmode-teacher .m-imglist li img{width:70px; height:106px; }
+.m-searchmode-teacher .m-imglist li p{ line-height:24px; margin-top:5px; height: 24px; overflow: hidden;}
+.m-searchmode-teacher .m-imglist li.z-cur p{ background-color:#f1f1f1; color:#03a093;}
+.search-slider-con > div{width:883px; height:160px; overflow: hidden; }
+.m-imglist-wrapper{	position: relative; margin-top:10px;}
+.m-imglist-wrapper .m-imglist{	position: absolute;	left:0;}
+.animate02 {-webkit-transition: 0.2s all ease; transition: 0.2s all ease;}
+.z-noclick{ color:#ccc!important; background-color:inherit!important; cursor:text;}
+.bg_bdr{ background:url(../images/border_bgy.png) repeat-y -214px 0;}
+/* 课程列表 */
+.m-courselist{  overflow:hidden;}
+.m-courselist-l{ padding-left: 148px; float:left; width:612px; color:#666; background:url(../images/border_bgy.png) repeat-y 642px 0; margin-bottom:20px; padding-right:15px; min-height: 110px; _height:155px; }
+.m-courselist-l h2{ font:18px/24px "Microsoft Yahei"; margin-bottom: 5px;}
+.m-courselist-l h2 em{ color:#ff7011;}
+.m-courselist-l h2 a{color:#03a093; }
+.m-courselist-l h2 a:hover{ text-decoration:underline;}
+.m-courselist-l h2 a:hover em{ text-decoration:none; }
+.m-courselist-l h4{ font-size:14px; line-height:18px; font-family:"Microsoft Yahei"; color: #c1c1c1; margin-bottom: 5px;}
+.m-courselist-l span{ margin-top:5px;}
+.u-title{ line-height:20px; color:#666; padding-left: 0px;}
+.u-title em{ color:#444; position: absolute; margin-left: -72px; font-weight: bold;}
+.u-title a{ color: #03a093; margin-right: 10px;}.u-title a:hover{ text-decoration: underline;}
+.xq_a{ margin-left: 5px;}
+.m-courselist-l p.max-h{ height: 20px; max-height: 20px; white-space: nowrap; text-overflow: ellipsis;}
+.m-courselist-l p{ overflow: hidden;}
+.m-courselist-select{position:absolute; top:10px; right:-130px; width: 125px;}
+.m-courselist-r{ float:right; width:130px; width:0px\9; color:#333;}
+.m-courselist-l h2 span{ position: absolute; margin: 0 0 0 10px;}
+.m-courselist-l h2 span i{ float: left; display: inline-block; overflow: hidden; margin:3px 5px 0 0; margin-top: 2px\9; font-size: 12px; font-style: normal;}
+.m-courselist .u-hot{ width:50px; background-position:-3px -300px; text-indent: -999px; height: 20px; }
+.u-stay,.u-video,.u-audio{ border-radius:3px; padding:2px 4px; background-color:#ff7011; color:#fff; margin:0 10px 0 0;  float:left; display:inline-block; line-height: 15px;}
+.u-video{ background-color:#03baa5;}
+.u-audio{background-color:#3db5e6; }
+.m-courselist .u-price{color:#ff7011; text-align:center; width:100%; font-family:"Microsoft Yahei";}
+.m-courselist .u-price span{ font-size:24px;}
+.m-courselist-select .u-btn{ display:inline-block;font-size:16px;margin:5px 10px 0 0; float:right;font-family:"Microsoft Yahei"; width:98px; height:28px;line-height:28px; }
+.m-courselist-select .u-btn4{display:inline-block;font-size:16px;font-family:"Microsoft Yahei";margin:5px 10px 0 0; float:right; background-color: #00b1a2;width:100px; height:30px; overflow:hidden; text-align:center; line-height:30px; color:#fffef8; border-radius:2px;}
+.m-courselist-select .u-btn4:hover{ background-color: #019c8f;}
+.m-dotline{ height:1px; overflow:hidden; background-color:#ececec; clear:both; margin:-10px 0 10px 0; *margin-top:5px;}
+.m-courselist .u-discount{width: 47px; height: 35px; position: absolute; background-position: 0 -164px;right: -30px; top: 0; z-index: 8;}
+.u-more{ clear:both; text-align:center; border-top: 1px solid #e1e2e1; font-size:18px; padding:10px 0;}
+.u-more a{ color:#03a093}.u-more a:hover{ text-decoration:underline; color:#03a093;}
+/* 名师战队 */
+.m-box .m-imgtxtlist li{ width:100%; margin:15px 0 0 0; font-size:16px;}
+.m-box .m-imgtxtlist li img{ width:70px; height:106px; float:left; margin-right:8px;}
+.m-box .m-imgtxtlist li h5{ margin-top:20px; font-size:16px; font-family:"Microsoft Yahei";}
+.m-box .m-imgtxtlist li p{ line-height:20px; color:#666; font-size:12px;}
+.u-r-icon{ margin-top:5px;}
+.u-r-icon a{ float:left; width:16px; height:16px; overflow:hidden; font-size:12px; font-family:"Arial"; line-height:16px; color:#666; margin-right:8px;}
+.u-r-icon a.u-icon1{ background-position:0 -729px;}
+.u-r-icon a:hover.u-icon1{ background-position:-19px -729px;}
+.u-r-icon a.u-icon2{ background-position:0 -750px; width:18px;}
+.u-r-icon a:hover.u-icon2{ background-position:0 -792px;}
+.u-r-icon a.u-icon3{ background-position:0 -771px;}
+.u-r-icon a:hover.u-icon3{ background-position:-19px -771px;}
+/* 去词搜索结果提示 */
+.m-segmenttips{ border-bottom:2px solid #ffab00; padding:5px 0; line-height:28px; color:#333; font-size:14px;}
+.m-segmenttips em{ color:#f5a100; margin:0 5px;}
+.m-segmenttips a{ color:#03a093; margin:0 5px;}.m-segmenttips a:hover{text-decoration: underline;}
+.m-segmentword{ color:#666; padding:10px 0; border-bottom:1px solid #e1e2e1; margin-bottom: 10px;}
+.m-segmentword .u-word{ display:inline-block; font:16px/30px "Microsoft Yahei"; padding:0 10px; color:#fff; border-radius:3px; background-color:#05a89a; margin-right:20px;}
+.m-segmentword .u-noword{ font:16px/30px "Microsoft Yahei"; text-decoration:line-through; margin-right:20px;}
+.m-segmentword .u-segmentips{ display:inline-block; height:20px; line-height:20px; padding-left:10px; border-left:1px solid #e1e2e1; margin-right:20px;}
+.m-segmentword a{ color:#03a093;}.m-segmentword a:hover{ text-decoration:underline;}
+.m-segmentmore{ text-align:center;}
+.m-segmentmore .u-btn{font-size:16px;}
+.m-segmentmore .u-btn:after{content:">"; font-family:"宋体"; font-weight:bold; padding-left:5px; }
+.u-more2{ border-top:none; padding-top:0; }
+/* 前途出国 */
+.m-courselist .u-service{font-size:18px; font-family: "Microsoft Yahei"; color: #ff7011; text-align: center; margin-top:5px;}
+.m-qt-bg{ background-color: #f7f8f8; padding:10px 0 0 10px;}
+.m-qt-bg .m-courselist-l{ background-position: 634px 0; width: 620px;}
+.m-qt-bg .m-courselist-select{ right:-125px;}
+.m-qt-head h2{ height: 34px; background-position: 235px -831px; padding-bottom: 10px; border-bottom: 1px dashed #e6e6e6; margin: 0 10px 0 0;}
+.m-qt-bg .m-courselist-l h2 i{display: inline-block; width: 21px; height: 20px; background-position: 0 -880px; position: absolute; margin:1px 0 0 5px;}
+.m-qt-bg .coli_page{ padding-top: 0; }
+.m-qt-bg .coli_page a{ height: 20px; line-height: 20px; padding: 0 7px;}
+/* 其它课程 */
+.m-otherscourse-head{border-bottom: 2px solid #5fc0b8; height: 100%; overflow: hidden;}
+.m-otherscourse-head h2{ font:18px/40px "Microsoft Yahei"; color: #333; margin: 0 10px 0 0; float: left;}
+.m-otherscourse-head .m-brandlist li{ float: left; margin: 4px 0 0 25px;}
+.m-otherscourse-head .m-brandlist li img{width: 90px; height: 32px;}
+.m-otherscourse-head .u-more{ float: right; border-top: none; clear:none; font-size: 12px; margin-right: 5px;font-family:"宋体"; padding:15px 0 0 0;}

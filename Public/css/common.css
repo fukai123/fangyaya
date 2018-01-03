@@ -1,0 +1,75 @@
+@charset "utf-8";
+/*
+ CSS Document
+ Code By Michael linhaijing 2013.06.19
+*/
+
+/*define style*/
+body{/*text-align:center; 2013.12.5 专题中内容居中（本应居左）修改*/ font-size:12px;}
+.wrap{ margin:0 auto; text-align:left; width:960px; padding:0; }
+a,a:visited,a:hover{ font-weight:normal; text-decoration:none;}
+a{ color:#000;}
+a:hover{ color:#000;}
+a:hover{ text-decoration:underline;}
+img{ display:inline-block;}
+
+li, ul li{ list-style:none;}
+
+/*layout style*/
+.height_10px{ height:10px; line-height:10px;}
+.float_left{ float:left;}
+.float_right{ float:right;}
+
+/*cleat float*/
+.clear {clear:both; display:block; overflow:hidden; visibility:hidden; width:0;height:0}
+.clearfix:after {clear:both; content:' '; display:block; font-size:0; line-height:0; visibility:hidden; width:0; height:0}
+*+html.clearfix {zoom:1}
+.clearit{ clear:both}
+
+/*top nav*/
+#common_topNav{ background:url(http://bj.xdf.cn/Portals/24/xdf_common/images/top_bottom.png) repeat-x 0 0; height:28px; text-align:center;}
+.topNav_main{ font-size:12px; margin:0 auto; width:960px;}
+.topNav_main p{color:#333; line-height:28px; padding-left:6px;text-align:left; width:550px; }
+.topNav_main .topNav_list {display:inline-block; height:28px; width:300px; }
+.topNav_main ul{ line-height:28px; padding:0 0 0 26px; text-align:right; }
+.topNav_main ul li{ color:#333; padding:0 6px;}
+.topNav_main ul .topNav_line{  background:url(http://bj.xdf.cn/Portals/24/xdf_common/images/top_bottom.png) no-repeat -10px -58px;display:inline-block;height:28px; line-height:28px; padding:0; width:5px;}
+.topNav_main ul .topNav_slantLine{background:url(http://bj.xdf.cn/Portals/24/xdf_common/images/top_bottom.png) no-repeat 0 -29px; height:28px; padding:0; width:26px;}
+.topNav_main ul li a,.topNav_main ul li a:visited,.topNav_main ul li a:hover{ color:#333; text-decoration:none;line-height:26px;}
+.topNav_main ul li a:hover{ text-decoration:underline;line-height:26px;}
+/*top class list*/
+.topNav_main ul .topNav_moreList{ padding:0 0px 0 6px; position:relative;}
+.topEffect{ margin-left:-10px; width:78px;}
+.switch_btn { display: block; height:20px; line-height: 20px; margin:4px 0 0; position:relative; padding: 1px 20px 0 10px; z-index:10002;}
+.switch_on{ background:#fff; border:1px solid #ccc; border-bottom:none; padding: 0 19px 0 9px;}
+.switch_off{ border:none; border-bottom:none;}
+.topNav_main ul li .switch_btn, .topNav_main ul li .switch_btn:visited, .topNav_main ul li .switch_btn:hover{ line-height:16px;text-decoration:none;}
+.switch_btn b{ background:url(http://bj.xdf.cn/Portals/24/xdf_common/images/top_bottom.png) no-repeat; display: block;height: 28px;left: 60px;position:absolute;top:-5px;width: 8px;}
+.switch_btn .arrows_up{ background-position: 0 -103px}
+.switch_btn .arrows_down{ background-position:0 -85px;}
+.switch_list{ display:none;background:#fff;border:1px solid #bfbfbf;line-height:21px;left:-22px; position:absolute;padding:6px 10px 6px 10px;top:24px;text-align:left;width:74px;z-index:10001; }
+.switch_list dl{ text-align:left;}
+
+/*common share*/
+#common_share{background:#fff;border:1px solid #ccc;color:#333;height:25px;line-height:25px;padding:10px 0 0 5px;width: 953px; margin: auto auto 10px auto;}
+
+/*common copyright*/
+#common_copyright{text-align:center; /*width:960px;*/margin: 0 auto; padding:0;}
+#common_copyright p{color:#fff; font-size:12px; height:28px; line-height:28px; margin:0 auto; text-align:center; }
+#common_copyright p a,#common_copyright p a:visited,#common_copyright p a:hover{ color:#fff; font-size:12px; padding:0 1em; text-decoration:none;}
+#common_copyright p a:hover{ text-decoration:underline;}
+#common_copyright .copy_main{ height:88px; text-align:center;}
+#common_copyright ul{ background:url(http://bj.xdf.cn/Portals/24/xdf_common/images/top_bottom.png) no-repeat 50px -248px; margin:0 auto; padding:14px 0 0 100px; text-align:left; width:420px;}
+#common_copyright ul li{ color:#333; font-size:12px; line-height:21px; width:330px;}
+
+#common_copyright .copy_Line {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border-top: 1px solid #666666;
+    display: block;
+    height: 1px;
+    line-height: 1px;
+    overflow: hidden;
+}
+#common_copyright p, #common_copyright p a, #common_copyright p a:visited, #common_copyright p a:hover, #common_copyright ul li {
+    color: #666666;
+}

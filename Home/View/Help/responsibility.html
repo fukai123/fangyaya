@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>免责声明</title>
+    <meta name="keywords" content="{$currentCity[1]}出租房租房,{$currentCity[1]}出租房租房网,{$currentCity[1]}出租房租房信息"/>
+    <meta name="description" content="{$currentCity[1]}出租房租房网为您提供最新租房信息，欢迎您来到房丫丫{$currentCity[1]}出租房租房网。"
+    />
+    <link href="__PUBLIC__/img/logo/title.png" type="image/x-icon" rel="icon">
+
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/fyy.css">
+
+    <script type="text/javascript" src="__PUBLIC__/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/css/layui/layui.js"></script>
+    <style type="text/css">
+        p {
+            line-height: 2;
+        }
+    </style>
+
+</head>
+<script>
+
+
+    layui.use(['layer', 'form', 'element'], function () {
+        var layer = layui.layer
+            , form = layui.form()
+            , element = layui.element()
+
+    });
+
+
+</script>
+<body>
+
+<div class="topdiv">
+    <!-- 顶部导航部分 -->
+    <div id="head">
+        <div class="wrap clearfix">
+            <div class="head_left fl">
+                <!--<span>房丫丫</span>-->
+                <a href="{:U('home/index/index')}">返回首页</a>
+                <!-- 切换城市部分 -->
+                <!--<div class="m-selectcity">-->
+                <!--<div class="m-city" id="selectcity">-->
+                <!--<i></i>-->
+                <!--<span id="cityName">[切换城市]</span>-->
+                <!--</div>-->
+                <!--&lt;!&ndash; 切换城市隐藏部分 &ndash;&gt;-->
+                <!--<div class="area_school" id="selectcity_pop">-->
+                <!--<p class="m-hotcity"><strong>推荐城市：</strong><a class="cityChange"-->
+                <!--href="/home/index/index/cityId/1">北京</a>-->
+
+                <!--</p>-->
+                <!--<ul>-->
+                <!--<foreach name="cityList" item="cityName" key="k">-->
+                <!--<li>-->
+
+                <!--<span>{$k}</span>-->
+
+                <!--<em>-->
+                <!--<foreach name="cityName" item="city">-->
+                <!--<a cid="$city['id']" class="cityChange"-->
+                <!--href="__CONTROLLER__/index/cityId/{$city['id']}">{$city['city_name']}</a>-->
+                <!--</foreach>-->
+
+                <!--</em>-->
+
+
+                <!--</li>-->
+
+                <!--</foreach>-->
+
+
+                <!--</ul>-->
+                <!--</div>-->
+                <!--&lt;!&ndash; 切换城市隐藏部分 end &ndash;&gt;-->
+                <!--</div>-->
+                <!-- 切换城市部分 end -->
+            </div>
+            <!-- header右侧部分 -->
+            <ul class="head_r fr clearfix">
+                <li class="login"><a href="/home/login/login">请登录</a>|<a href="/home/login/register">免费注册</a></li>
+                <li class="bangz">
+                    <a href="#">{$user}</a><em></em>
+                    <span class="d_line"></span>
+                    <span class="blank"></span>
+                    <div class="list">
+                        <div><a href="{:U('/home/user/index')}">我的发布</a></div>
+                        <div><a href="{:U('/home/login/loginOut')}">退出账号</a></div>
+                        <div><a href="/help-7.html"></a></div>
+                        <div><a href="#"></a></div>
+                    </div>
+                </li>
+                <!--<li><b>客服热线：400-767-6666</b></li>-->
+            </ul>
+        </div>
+    </div>
+    <!-- 顶部导航部分 end -->
+
+</div>
+<div style="width:950px;margin:10px auto;">
+
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>房丫丫-免责声明</legend>
+    </fieldset>
+
+
+    <blockquote class="layui-elem-quote"><p>
+        1、一切网民在进入房丫丫网主页及各层页面时均被视为已经仔细看过本条款并完全同意。凡以任何方式登陆本网站，或直接、间接使用本网站资料者，均被视为自愿接受本网站相关声明和用户服务协议的约束。
+    </p>
+    </blockquote>
+    <blockquote class="layui-elem-quote"><p>
+        2、房丫丫网转载的内容并不代表房丫丫网之意见及观点，也不意味着本网赞同其观点或证实其内容的真实性。
+    </p></blockquote>
+    <blockquote class="layui-elem-quote"><p>
+        3、房丫丫网转载的文字、图片、音视频等资料均由本网站用户提供，其真实性、准确性和合法性由信息发布人负责。房丫丫网不提供任何保证，并不承担任何法律责任。
+    </p>
+    </blockquote>
+    <blockquote class="layui-elem-quote"><p>
+        4、房丫丫网所转载的文字、图片、音视频等资料，如果侵犯了第三方的知识产权或其他权利，责任由作者或转载者本人承担，本网站对此不承担责任。
+    </p>
+    </blockquote>
+    <blockquote class="layui-elem-quote"><p>
+        5、房丫丫网不保证为向用户提供便利而设置的外部链接的准确性和完整性，同时，对于该外部链接指向的不由房丫丫网实际控制的任何网页上的内容，房丫丫网不承担任何责任。
+    </p>
+    </blockquote>
+    <blockquote class="layui-elem-quote"><p>
+        6、用户明确并同意其使用房丫丫网网络服务所存在的风险将完全由其本人承担；因其使用房丫丫网网络服务而产生的一切后果也由其本人承担，房丫丫网对此不承担任何责任。
+    </p></blockquote>
+    <blockquote class="layui-elem-quote"><p>
+        7、除房丫丫网注明之服务条款外，其它因不当使用本网而导致的任何意外、疏忽、合约毁坏、诽谤、版权或其他知识产权侵犯及其所造成的任何损失（包括因不当下载而感染电脑病毒等），房丫丫网概不负责，亦不承担任何法律责任。
+    </p></blockquote>
+    <blockquote class="layui-elem-quote"><p>
+        8、对于因不可抗力或因黑客攻击、通讯线路中断等房丫丫网不能控制的原因造成的网络服务中断或其他缺陷，导致用户不能正常使用房丫丫网，房丫丫网不承担任何责任，但将尽力减少因此给用户造成的损失或影响。
+    </p></blockquote>
+    <blockquote class="layui-elem-quote"><p>
+        9、本声明未涉及的问题请参见国家有关法律法规，当本声明与国家有关法律法规冲突时，以国家法律法规为准。
+    </p></blockquote>
+    <blockquote class="layui-elem-quote"><p>
+        10、本网站相关声明版权及其修改权、更新权和最终解释权均属房丫丫网所有。
+    </p></blockquote>
+
+</div>
+
+</div>
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?aa0a68ac2cc94e342ba2fb2a5fac6264";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<div class="wrapper mt20" style="margin:0 auto;color: #999;padding-top: 20px;margin-left:38%">
+    <!--</div>-->
+    <div class="m-footer">
+        <p class="m-footer-info mt10">房丫丫网&nbsp;版权所有&nbsp;©2017&nbsp;️京ICP备17007311号-1&nbsp;<a
+                href="{:U('/home/help/responsibility')}">免责声明</a>
+        </p>
+
+    </div>
+</div>
+</body>
+</html>

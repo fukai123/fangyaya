@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$currentCity[1]}房丫丫-免费发布租房信息</title>
+    <meta name="keywords" content="{$currentCity[1]}出租房租房,{$currentCity[1]}出租房租房网,{$currentCity[1]}出租房租房信息"/>
+    <meta name="description" content="{$currentCity[1]}出租房租房网为您提供最新租房信息，欢迎您来到房丫丫{$currentCity[1]}出租房租房网。"
+    />
+
+    <link href="__PUBLIC__/img/logo/title.png" type="image/x-icon" rel="icon">
+    <include file="Public:pub_css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/fyy.css">
+
+
+</head>
+<body>
+<div class="topdiv">
+    <!-- 顶部导航部分 -->
+    <div id="head">
+        <div class="wrap clearfix">
+            <div class="head_left fl">
+                <!--<span>房丫丫</span>-->
+                <a href="{:U('home/index/index')}">首页</a>
+                <!-- 切换城市部分 -->
+                <div class="m-selectcity">
+                    <div class="m-city" id="selectcity">
+                        <i></i>
+                        <span id="cityName">[切换城市]</span>
+                    </div>
+                    <!-- 切换城市隐藏部分 -->
+                    <div class="area_school" id="selectcity_pop">
+                        <p class="m-hotcity"><strong>推荐城市：</strong><a class="cityChange"
+                                                                      href="/home/index/index/cityId/1">北京</a>
+                            <a class="cityChange" href="/home/index/index/cityId/2">上海</a><a
+                                    class="cityChange" href="/home/index/index/cityId/3">济南</a>
+                        </p>
+                        <ul>
+                        <foreach name="cityList" item="cityName" key="k">
+                        <li>
+
+                        <span>{$k}</span>
+
+                        <em>
+                        <foreach name="cityName" item="city">
+                        <a cid="$city['id']" class="cityChange"
+                        href="__CONTROLLER__/index/cityId/{$city['id']}">{$city['city_name']}</a>
+                        </foreach>
+
+                        </em>
+
+
+                        </li>
+
+                        </foreach>
+
+
+                        </ul>
+                    </div>
+                    <!-- 切换城市隐藏部分 end -->
+                </div>
+                <!-- 切换城市部分 end -->
+            </div>
+            <!-- header右侧部分 -->
+            <ul class="head_r fr clearfix">
+                <li class="login"><a href="/home/login/login">请登录</a>|<a href="/home/login/register">免费注册</a></li>
+                <li class="bangz">
+                    <a href="#">{$user}</a><em></em>
+                    <span class="d_line"></span>
+                    <span class="blank"></span>
+                    <div class="list">
+                        <div><a href="{:U('/home/user/index')}">我的发布</a></div>
+                        <div><a href="{:U('/home/login/loginOut')}">退出账号</a></div>
+                        <div><a href="/help-7.html"></a></div>
+                        <div><a href="#"></a></div>
+                    </div>
+                </li>
+                <!--<li><b>客服热线：400-767-6666</b></li>-->
+            </ul>
+        </div>
+    </div>
+    <!-- 顶部导航部分 end -->
+    <div id="head_logo" style="z-index: 9999;">
+        <div class="wrap clearfix">
+            <div class="head_logo">
+                <div class="logo fl"><img style="width: 160px;height: 40px;" src="/Public/img/logo/logo1.png"></div>
+                <!--<div class="sec fl clearfix">-->
+                <!--<div class="search_div">-->
+                <!--<input type="text" value="请输入…" class="input_txt">-->
+                <!--<input type="button" value="搜索" class="input_btn">-->
+                <!--</div>-->
+                <!--</div>-->
+                <a href="{:U('home/index/publish')}" class="fbBtn">免费发布</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--<include file="Public:pub_search2"/>-->
+
+
+<div class="wrapper">
+
+    <div class="wrapper" id="divCategoryCrumbs">
+        <div class="m-crumbs">
+            当前所在城市：
+            <a href="#">{$currentCity[1]}</a>
+            <!--<em>&gt;</em><a href="/Category/1-145-0-0.html">出国留学</a>-->
+        </div>
+    </div>
+
+</div>
+<div class="wrapper u-bt" id="divFilterBox">
+    <!-- 品牌 -->
+    <!-- 分类筛选 -->
+    <div class="m-categoryfilter">
+        <dl class="m-filter-item">
+            <dt>区域：</dt>
+            <dd>
+                <foreach name="areaList" item="area" key="k">
+                    <if condition="$current['areaId'] eq $area['id']">
+                        <a class="z-cur"
+                           href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$area['id']}/money/{$current['money']}/hx/{$current['hx']}/rs/{$current['rs']}/roomstyle/{$current['roomstyle']}">{$area['city_name']}</a> 
+
+                        <else/>
+                        <a class=""
+                           href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$area['id']}/money/{$current['money']}/hx/{$current['hx']}/rs/{$current['rs']}/roomstyle/{$current['roomstyle']}">{$area['city_name']}</a>
+                    </if>
+
+                </foreach>
+
+
+            </dd>
+            <if condition="count($countryList) gt 0">
+                <dd class="m-filter-items">
+                    <foreach name="countryList" item="country" key="k">
+                        <foreach name="country" item="con">
+                            <if condition="$current['countryId'] eq $con['id']">
+
+                                <a class="z-cur"
+                                   href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$con['id']}/money/{$current['money']}/hx/{$current['hx']}/rs/{$current['rs']}/roomstyle/{$current['roomstyle']}">{$con['city_name']}</a>
+                                <else/>
+                                <a class=""
+                                   href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$con['id']}/money/{$current['money']}/hx/{$current['hx']}/rs/{$current['rs']}/roomstyle/{$current['roomstyle']}">{$con['city_name']}</a>
+                            </if>
+                        </foreach>
+
+
+                    </foreach>
+
+
+                </dd>
+            </if>
+
+        </dl>
+    </div>
+
+
+    <div class="m-categoryfilter">
+        <dl class="m-filter-item">
+            <dt>租金：</dt>
+            <dd>
+                <foreach name="money" item='m' key='k'>
+
+                    <if condition="$m['range'] eq $current['money']">
+
+                        <a class="z-cur"
+                           href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$current['countryId']}/money/{$m['range']}/hx/{$current['hx']}/rs/{$current['rs']}/roomstyle/{$current['roomstyle']}">{$m['name']}</a>
+                        <else/>
+                        <a class=""
+                           href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$current['countryId']}/money/{$m['range']}/hx/{$current['hx']}/rs/{$current['rs']}/roomstyle/{$current['roomstyle']}">{$m['name']}</a>
+
+
+                    </if>
+
+
+                </foreach>
+            </dd>
+
+        </dl>
+    </div>
+
+    <div class="m-categoryfilter">
+        <dl class="m-filter-item">
+            <dt>厅室：</dt>
+            <dd>
+                <foreach name="hx" item="hx1">
+                    <if condition="$hx1['name'] eq $current['hx']">
+                        <a class="z-cur"
+                           href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$current['countryId']}/money/{$current['money']}/hx/{$hx1['name']}/rs/{$current['rs']}/roomstyle/{$current['roomstyle']}">{$hx1['huxing']}</a>
+
+                        <else/>
+                        <a class=""
+                           href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$current['countryId']}/money/{$current['money']}/hx/{$hx1['name']}/rs/{$current['rs']}/roomstyle/{$current['roomstyle']}">{$hx1['huxing']}</a>
+
+                    </if>
+
+                </foreach>
+
+
+            </dd>
+
+        </dl>
+    </div>
+
+    <div class="m-categoryfilter">
+        <dl class="m-filter-item">
+            <dt>方式：</dt>
+            <dd>
+                <foreach name="rentStyle" item="rs">
+                    <if condition="$rs['name'] eq $current['rs']">
+                        <a class="z-cur"
+                           href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$current['countryId']}/money/{$current['money']}/hx/{$current['hx']}/rs/{$rs['name']}/roomstyle/{$current['roomstyle']}">{$rs['rent_style']}</a>
+
+                        <else/>
+                        <a class=""
+                           href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$current['countryId']}/money/{$current['money']}/hx/{$current['hx']}/rs/{$rs['name']}/roomstyle/{$current['roomstyle']}">{$rs['rent_style']}</a>
+
+                    </if>
+
+                </foreach>
+
+            </dd>
+
+        </dl>
+    </div>
+    <if condition="$current['rs'] eq 'dj'">
+
+
+        <div class="m-categoryfilter">
+            <dl class="m-filter-item">
+                <dt>卧室：</dt>
+                <dd>
+                    <foreach name="roomList" item="room">
+                        <if condition="$room['id'] eq $current['roomstyle']">
+                            <a class="z-cur"
+                               href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$current['countryId']}/money/{$current['money']}/hx/{$current['hx']}/rs/{$current['rs']}/roomstyle/{$room['id']}">{$room['room_style']}</a>
+
+                            <else/>
+                            <a class=""
+                               href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$current['countryId']}/money/{$current['money']}/hx/{$current['hx']}/rs/{$current['rs']}/roomstyle/{$room['id']}">{$room['room_style']}</a>
+
+                        </if>
+
+                    </foreach>
+
+                </dd>
+
+            </dl>
+        </div>
+    </if>
+
+
+    <!-- 其他筛选 -->
+    <div class="wrapper mt10" id="divSearchModeBox">
+
+        <div id="searchmode-address" class="m-searchmode-item" style="display: none;">
+            <div class="m-searchmode-address" id="businessDistrictFilter">
+            </div>
+        </div>
+        <div id="searchmode-time" class="m-coursesort mt10">
+            <div title="默认排序" id="sel_city" class="u-sort">
+                <a href="/Search?cid=1&amp;ccc=40" id="btnDefaultSort" class="z-cur">默认排序</a><!--选中状加态z-cur-->
+            </div>
+            <div class="u-sort2">
+                <!--<a href="/Search?cid=1&amp;ccc=40&amp;Sort=3" title="" id="btnDateSort" class="sort-asc">最近刷新</a>-->
+                <!--切换箭头方向样式sort-asc2-->
+                <!--<a href="/Search?cid=1&amp;ccc=40&amp;Sort=1" title="" id="btnPriceSort"-->
+                <!--class="sort-asc">价格</a>&lt;!&ndash;切换箭头方向样式sort-dec2&ndash;&gt;-->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrapper bg_bdr mt10">
+    <div class="col_left w780">
+        <div class="m-ad mb10">
+
+        </div>
+        <!-- 正文列表 -->
+
+
+
+    </div>
+    <!--<div class="col_right w200">-->
+
+    <!--<div id="topRegClassList" class="m-box mb10">-->
+    <!--<div class="m-hd">-->
+    <!--<h2>推广信息</h2>-->
+    <!--</div>-->
+    <!--<div id="divTopRegClassList" class="m-bd">-->
+    <!--<ul class="txt_Toplists txt_Toplists2 mt10">-->
+    <!--<li>-->
+    <!--<em>1</em><a href="/Class/1-2591593.html" title="三年级英语综合培优寒假班（尖子班）" target="_blank">xxxxx-->
+    <!--xxxxxxx</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<em>2</em><a href="/Class/1-2595672.html" title="四年级数学思维训练春季班" target="_blank">xxxxxxxxxxx</a>-->
+    <!--</li>-->
+
+    <!--</ul>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="m-box mt10">-->
+    <!--<div class="m-hd">-->
+    <!--<h2>最近浏览</h2>-->
+    <!--</div>-->
+    <!--<div class="m-bd">-->
+    <!--<ul id="browselist_container" class="m-txtlist mt10"></ul>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="m-ad mt10">-->
+    <!--<div id='adModel_458'></div>-->
+    <!---->
+    <!--</div>-->
+    <!--<div class="m-ad mt10">哈哈哈哈-->
+    <!--</div>-->
+    <!--<div class="m-ad mt10">哈哈哈哈-->
+    <!--</div>-->
+    <!--</div>-->
+</div>
+
+
+<div class="wrapper mt20">
+
+
+    <!--<div class="m-footer">-->
+    <!--<p class="m-footer-info mt10">经营许可证编号：京ICP备17007311号-1<em>|</em>京ICP证060601号<em>|</em>京网文[2013]0911-960<em>|</em>京公网安备1101084985-->
+    <!--</p>-->
+    <!--&lt;!&ndash;<p class="m-footer-info">Copyright 2011-2017 Neworiental Corporation, All Rights Reserved</p>&ndash;&gt;-->
+
+
+    <!--</div>-->
+    <div class="m-footer">
+        <p class="m-footer-info mt10">京ICP备17007311号-1
+        </p>
+        <!--<p class="m-footer-info">Copyright 2011-2017 Neworiental Corporation, All Rights Reserved</p>-->
+
+
+    </div>
+</div>
+
+
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(function () {
+            $(".m-selectcity").hover(function () {
+                $(".area_school").show();
+            }, function () {
+                $(".area_school").hide();
+            });
+        });
+
+        $(function () {
+            $(".bangz").hover(function () {
+                $(".head_r .bangz .blank").show();
+                $(".head_r .bangz .d_line").show();
+                $(".head_r .bangz .list").show();
+                $(".bangz em").addClass('arrow');
+            }, function () {
+                $(".head_r .bangz .blank").hide();
+                $(".head_r .bangz .d_line").hide();
+                $(".head_r .bangz .list").hide();
+                $(".bangz em").removeClass('arrow');
+            });
+        });
+
+        $(function () {
+            $('.input_txt').focus(function () {
+                if ($(this).val() == '请输入…') {
+                    $(this).val('');
+                }
+            }).blur(function () {
+                if ($(this).val().trim() == '') {
+                    $(this).val('请输入…');
+                }
+            });
+        });
+
+        $(function () {
+            var H = $(".topdiv").height();
+            $(window).scroll(function (event) {
+                var num = $(document).scrollTop();
+                if (num >= H) {
+                    $("#head_logo").css({
+                        "position": "fixed",
+                        "top": 0,
+                        "width": "100%",
+                        "background-color": "#05a89a"
+                    });
+                    $("#head_logo .fbBtn").css({"background-color": "#fff", "color": "#05a89a"});
+                    $("#head_logo .input_btn").css({"border": "1px solid #fff"});
+                    $('#head_logo img').attr('src', '/Public/img/logo/logo1.png');
+
+                } else {
+                    $("#head_logo").css({"position": "static", "background-color": "#fff"});
+                    $("#head_logo .fbBtn").css({"background-color": "#05a89a", "color": "#fff"});
+                    $("#head_logo .input_btn").css({"border": "0"});
+                    $('#head_logo img').attr('src', '/Public/img/logo/logo1.png');
+                }
+            });
+        });
+
+    });
+</script>
+</html>

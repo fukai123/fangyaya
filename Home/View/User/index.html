@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$currentCity[1]}房丫丫-我的发布</title>
+    <meta name="keywords" content="{$currentCity[1]}出租房租房,{$currentCity[1]}出租房租房网,{$currentCity[1]}出租房租房信息"/>
+    <meta name="description" content="{$currentCity[1]}出租房租房网为您提供最新租房信息，欢迎您来到房丫丫{$currentCity[1]}出租房租房网。"
+    />
+    <link href="__PUBLIC__/img/logo/title.png" type="image/x-icon" rel="icon">
+
+    <include file="Public:pub_css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/fyy.css">
+
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/layui/css/layui.css"/>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/css/layui/layui.js"></script>
+
+</head>
+<script>
+
+    layui.use(['layer', 'form', 'element'], function () {
+        var layer = layui.layer
+            , form = layui.form()
+            , element = layui.element()
+
+    });
+
+</script>
+
+
+<body>
+<include file="Public:pub_top"/>
+<div style="margin:0 auto;width: 75%;">
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+        <legend>我的帖子</legend>
+    </fieldset>
+
+    <div id="divSearchResult">
+        <foreach name="homeList" item="home">
+            <div class="m-courselist">
+                <div class="m-courselist-l pr">
+                    <div class="m-courselist-select" style="left: 0px; top: 0px;">
+                        <img src="{:C('SITE')}{$home['pic_small']}" alt="" onerror="this.src='__PUBLIC__/img/bjpic1.jpg'" style="width: 125px;height: 94px;">
+                    </div>
+                    <h2>
+                        <a style="text-decoration: none;" target="_blank"
+                           href="/Course/1-1-12026.html">
+                            <switch name="home['rent_style']">
+                                <case value="dj">单间&nbsp;&nbsp;</case>
+                                <case value="zt">整套&nbsp;&nbsp;</case>
+                                <case value="cw">床位&nbsp;&nbsp;</case>
+
+                            </switch>
+                            {$home['title']}</a>
+
+                    </h2>
+                    <h4></h4>
+                    <p class="u-title max-h">
+                        <switch name="home['rent_style']">
+                            <case value="dj|cw">
+                                <switch name="home['room_style']">
+                                    <case value="1">主卧&nbsp;&nbsp;</case>
+                                    <case value="2">次卧&nbsp;&nbsp;</case>
+                                    <case value="3">隔断&nbsp;&nbsp;</case>
+                                    <case value="4">床位&nbsp;&nbsp;</case>
+                                </switch>
+                                &nbsp;&nbsp;{$home['square']}㎡
+                            </case>
+                            <case value="zt">{$home['shi']}室{$home['ting']}厅{$home['wei']}卫&nbsp;&nbsp;{$home['square']}㎡</case>
+
+                        </switch>
+                    </p>
+                    <p class="u-title">
+                        <!--<span>-->
+
+                        <!--<i class="u-stay" style="display: block;">宽带</i>-->
+                        <!--<i class="u-video" style="display: block;">阳台</i>-->
+                        <!--<i class="u-audio" style="display: block;">空调</i>-->
+                        <!--</span>-->
+                        支付方式：{$home['style']}
+                    </p>
+
+                    <p class="u-title">
+                        发布时间：{$home['create_time']}
+
+                    </p>
+                    <div class="m-courselist-select">
+                        <div class="u-price">
+                            <div class='u-price'>￥<span>{$home['rent_money']}</span>/月</div>
+                        </div>
+
+                        <a class="u-btn4" target="_blank" href="/home/index/detail/id/{$home['id']}.html">预览</a>
+
+
+                        <a href="javascript:" id="del_{$home['id']}" onclick="del({$home['id']})" class='u-btn'>删除</a>
+                    </div>
+                </div>
+                <div class="m-courselist-r">
+                </div>
+                <div class="m-classbox" id="12026-ClassBox" data-keyword="" style="display: none;">
+                </div>
+            </div>
+        </foreach>
+
+        <!--分页-->
+        <div class="m-page">
+            <div class="m-page">  {$pageBar} </div>
+
+
+        </div>
+    </div>
+
+</div>
+<script>
+    function del(id) {
+        if (confirm('确定要删除该帖子吗？')) {
+
+            $.ajax({
+                url: '/home/user/delete',
+                type: 'post',
+                data: {'id': id},
+                dataType: 'json',
+                success: function (data) {
+                    if (data != '' && data != null) {
+                        if (data.state != 0) {
+                            window.location.href="{:U('/home/user/index')}";
+                        }
+                        else {
+                            alert(data.msg);
+                        }
+                    }
+                }
+            });
+        }
+
+    }
+</script>
+<include file="Public:pub_foot"/>
+
+</body>
+</html>

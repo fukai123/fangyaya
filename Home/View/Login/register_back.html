@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link href="__PUBLIC__/img/favicon.ico" type="image/x-icon" rel="icon">
+
+
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/fyy.css">
+
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/layui/css/layui.css"/>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/css/layui/layui.js"></script>
+
+
+</head>
+<script>
+    function check_phone() {
+
+        var phone2 = document.getElementById('phone').value;
+        if (phone2.match(/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/) != null) {
+//            layer.tips('手机号格式错误', '#teacherphone', {tips: ['2', '#FF0000']});
+            document.getElementById('p').className = 'layui-btn layui-btn-primary';
+        }
+        else {
+            document.getElementById('p').className = 'layui-btn layui-btn-disabled';
+
+
+        }
+    }
+
+
+    $(function () {
+
+        $('#phone').focus();
+
+        $('#vertify').click(function () {
+            var ran = Math.random();
+
+            $(this).attr('src', '__CONTROLLER__/getVertify/rand/' + ran + '');
+
+        });
+
+
+        var phone = document.getElementById('phone');
+        phone.onkeyup = function () {
+            check_phone();
+        }
+
+        $('#p').click(function () {
+            var pc = document.getElementById('p');
+            if (pc.className == 'layui-btn layui-btn-primary') {
+//                alert('可以使用');
+
+                $.ajax({
+                    url: '/home/login/getPhone',
+                    type: 'post',
+                    data: {
+                        'phone': $('#phone').val()
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.state == 0) {
+                            alert(data.msg);
+                        }
+                        else {
+                            alert('短信验证码已发送到您的手机，请核对。');
+                        }
+                    }
+
+                })
+
+                pc.className = 'layui-btn layui-btn-disabled';
+                var t = 10;
+                var stop = setInterval(function () {
+
+                    document.getElementById('p').innerText = '短信已发送,' + t + '秒后重新获取';
+                    t--;
+                    if (t == 0) {
+                        clearInterval(stop);
+                        pc.className = 'layui-btn layui-btn-primary';
+                        pc.innerText = '获取动态码';
+
+                        ;
+
+                    }
+
+                }, 900);
+
+
+            } else {
+
+            }
+
+        });
+
+        layui.use(['layer', 'form', 'element'], function () {
+
+
+            var form = layui.form()
+                , layer = layui.layer
+                , layedit = layui.layedit
+                , laydate = layui.laydate;
+
+
+            //自定义验证规则
+            form.verify({
+                validate: function (value) {
+                    var result;
+                    if (value == '') {
+                        result = '请输入图片中的验证码';
+                    }
+                    else {
+                        $.ajax({
+                            url: '{:U("login/checkCode")}',
+                            type: 'post',
+                            async: false,
+                            data: {'vertify': value},
+                            success: function (data) {
+
+                                if (data == 'no') {
+
+                                    result = '验证码不正确，请点击图片更换';
+
+                                }
+                            }
+                        });
+                    }
+                    return result;
+                },
+                pass: [/(.+){6,12}$/, '密码必须6到12位'],
+                phoneCheck: function (value) {
+                    var result;
+                    if (value == '') {
+                        result = '请输入短信验证码';
+                    }
+                    $.ajax({
+                        url: '{:U("login/checkPhone")}',
+                        type: 'post',
+                        async: false,
+                        data: {'phoneVertify': value, 'phoneNUm': $('#phone').val()},
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.state == 0) {
+                                result = data.msg;
+                            }
+                        }
+
+                    });
+                    return result;
+                }
+            });
+
+
+        });
+
+
+    });
+
+
+</script>
+<body>
+<div class="topdiv">
+    <!-- 顶部导航部分 -->
+    <div id="head">
+        <div class="wrap clearfix">
+            <div class="head_left fl">
+                <!--<span>房丫丫</span>-->
+                <a href="{:U('home/index/index')}">房丫丫首页</a>
+                <!-- 切换城市部分 -->
+                <div class="m-selectcity">
+                    <div class="m-city" id="selectcity">
+                        <i></i>
+                        <span id="cityName">[切换城市]</span>
+                    </div>
+                    <!-- 切换城市隐藏部分 -->
+                    <div class="area_school" id="selectcity_pop">
+                        <p class="m-hotcity"><strong>推荐城市：</strong><a class="cityChange" href="#">北京</a><a
+                                class="cityChange" href="#">上海</a>
+                        </p>
+                        <ul>
+                            <foreach name="cityList" item="cityName" key="k">
+                                <li>
+
+                                    <span>{$k}</span>
+
+                                    <em>
+                                        <foreach name="cityName" item="city">
+                                            <a cid="$city['id']" class="cityChange"
+                                               href="__CONTROLLER__/index/cityId/{$city['id']}">{$city['city_name']}</a>
+                                        </foreach>
+
+                                    </em>
+
+
+                                </li>
+
+                            </foreach>
+
+
+                        </ul>
+                    </div>
+                    <!-- 切换城市隐藏部分 end -->
+                </div>
+                <!-- 切换城市部分 end -->
+            </div>
+            <!-- header右侧部分 -->
+            <ul class="head_r fr clearfix">
+                <li class="login"><a href="/home/login/login">请登录</a>|<a href="/home/login/register">免费注册</a><a></a>
+                </li>
+                <li class="bangz">
+                    <a href="#">个人中心</a><em></em>
+                    <span class="d_line"></span>
+                    <span class="blank"></span>
+                    <div class="list">
+                        <div><a href="#">我的发布</a></div>
+                        <div><a href="/help-6.html">买家交易</a></div>
+                        <div><a href="/help-7.html">个人卖家</a></div>
+                        <div><a href="#">客户服务</a></div>
+                    </div>
+                </li>
+                <!--<li><b>客服热线：400-767-6666</b></li>-->
+            </ul>
+        </div>
+    </div>
+    <!-- 顶部导航部分 end -->
+
+</div>
+<!-- <div style="height:1200px;width:100px;background:red;">我是占位置的</div> -->
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(function () {
+            $(".m-selectcity").hover(function () {
+                $(".area_school").show();
+            }, function () {
+                $(".area_school").hide();
+            });
+        });
+
+        $(function () {
+            $(".bangz").hover(function () {
+                $(".head_r .bangz .blank").show();
+                $(".head_r .bangz .d_line").show();
+                $(".head_r .bangz .list").show();
+                $(".bangz em").addClass('arrow');
+            }, function () {
+                $(".head_r .bangz .blank").hide();
+                $(".head_r .bangz .d_line").hide();
+                $(".head_r .bangz .list").hide();
+                $(".bangz em").removeClass('arrow');
+            });
+        });
+
+        $(function () {
+            $('.input_txt').focus(function () {
+                if ($(this).val() == '请输入…') {
+                    $(this).val('');
+                }
+            }).blur(function () {
+                if ($(this).val().trim() == '') {
+                    $(this).val('请输入…');
+                }
+            });
+        });
+
+        $(function () {
+            var H = $(".topdiv").height();
+            $(window).scroll(function (event) {
+                var num = $(document).scrollTop();
+                if (num >= H) {
+                    $("#head_logo").css({
+                        "position": "fixed",
+                        "top": 0,
+                        "width": "100%",
+                        "background-color": "#05a89a"
+                    });
+                    $("#head_logo .fbBtn").css({"background-color": "#fff", "color": "#05a89a"});
+                    $("#head_logo .input_btn").css({"border": "1px solid #fff"});
+                } else {
+                    $("#head_logo").css({"position": "static", "background-color": "#fff"});
+                    $("#head_logo .fbBtn").css({"background-color": "#05a89a", "color": "#fff"});
+                    $("#head_logo .input_btn").css({"border": "0"});
+                }
+            });
+        });
+
+    });
+</script>
+<div style="width:550px;height: 200px;margin:50px auto;background-color: white;">
+
+
+    <form class="layui-form layui-form-pane"
+          style="padding:100px;margin: 10% auto;width:442px;"
+          action="" method="post">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">手机号</label>
+            <div class="layui-input-inline">
+                <input type="text" name="phone" id="phone" lay-verify="phone" style="width:220px;"
+                       placeholder="请输入手机号"
+                       autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">动态码</label>
+            <div class="layui-input-inline">
+                <input name="phoneCode" type="text" lay-verify="phoneCheck" style="width:220px;" placeholder="请输入"
+                       autocomplete="off"
+                       class="layui-input">
+            </div>
+            <a style=" margin-left: 31px;float: right;position: absolute;border: 0px solid #e6e6e6;margin:1px auto 1px -84px;height: 36px;"
+               href="javascript:"
+               class="layui-btn layui-btn-disabled" id="p">获取动态码</a>
+            <!--layui-btn layui-btn-primary-->
+        </div>
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码</label>
+            <div class="layui-input-inline">
+                <input name="pwd" type="password" lay-verify="pass" placeholder="请输入密码" autocomplete="off"
+                       class="layui-input"
+                       style="width:220px;">
+            </div>
+            <!--<div class="layui-form-mid layui-word-aux">请务必填写用户名</div>-->
+        </div>
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">验证码</label>
+            <div class="layui-input-inline">
+                <input name="vertiCode" type="text" lay-verify="validate" style="width:220px;" placeholder="请输入验证码"
+                       autocomplete="off"
+                       class="layui-input">
+            </div>
+            <img title="点击更换" id="vertify"
+                 style="width: 116px;height: 35px;margin-left: -99px;margin-top: 2px;position: absolute;cursor: pointer;"
+                 src="{:U('login/getVertify')}"/>
+        </div>
+
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit="" lay-filter="demo" style="width:332px;margin-left: -110px;">注册
+                </button>
+
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+<script>
+
+
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {padding: 0;margin: 0;} 
+table {border-collapse: collapse;border-spacing: 0;} 
+fieldset,img,abbr,acronym{border: 0;} 
+address,caption,cite,code,dfn,em,th,var {font-weight: normal;font-style: normal;} 
+ol,ul,li{list-style: none;} 
+caption,th {text-align: left;} 
+h1,h2,h3,h4,h5,h6 {font-weight: normal;font-size: 100%;} 
+q:before,q:after {content:"";} 
+body{font-size:12px;font-family:"Hiragino Sans GB","SimSun","Arial Narrow";}
+textarea {outline: none; resize: none; overflow:auto;}
+img{vertical-align:middle;}
+:focus{outline:0;}
+.fix,.wrapper{*zoom: 1;}
+.fix:after,.wrapper:after{content: "";visibility: hidden;display: block;height: 0;clear: both;}
+a{color:#000; text-decoration:none;}a:hover{ color:#000;text-decoration:underline;}
+a img {border: none;text-decoration: none;}
+label, button,a {cursor: pointer;}
+p{word-wrap:break-word;}
+.clear { zoom:1; clear: both;}
+.clear:after { content:''; display:block; clear:both; }
+ 
+ /* 框架 */
+.wrapper{width: 1200px; margin:0 auto;}
+.col_left,.col_center,.col_right{ float:left; display:inline;} /* 左、中、右 */
+.col_right{ float:right;}
+
+/* 功能样式*/
+.fwb{ font-weight:bold !important;}
+.ffA{ font-family:Arial !important;}
+.ffMS{ font-family:"Microsoft Yahei" !important;}
+.fs12{ font-size:12px !important;}
+.fs14{ font-size:14px !important;}
+.fs16{ font-size:16px !important;}
+.lh18{ line-height:18px !important;}
+.lh22{ line-height:22px !important;}
+.lh24{ line-height:24px !important;}
+.lh26{ line-height:26px !important;}
+.lh28{ line-height:28px !important;}
+.mt10{ margin-top:10px !important;}
+.mt20{ margin-top:20px !important;}
+.ml10{ margin-left:10px !important;}
+.mr10{ margin-right:10px !important;}
+.mb10{ margin-bottom:10px !important;}
+.pt10{ padding-top:10px !important;}
+.pl10{ padding-left:10px !important;}
+.pr10{ padding-right:10px !important;}
+.pb10{ padding-bottom:10px !important;}
+.m0{ margin:0!important;}
+.p0{ padding:0px !important;}
+.pr{ position:relative;}
+.pa{ position:absolute;}
+.fl{ float:left!important;}
+.fr{ float:right!important;}

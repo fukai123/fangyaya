@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>【{$currentCity[1]}{$currentArea['city_name']}{$currentCountry['city_name']}|房屋出租信息|免费发布租房信息】-{$currentCity[1]}房丫丫官网</title>
+    <meta name="keywords" content="{$currentCity[1]}{$currentArea['city_name']}{$currentCountry['city_name']}出租房租房,{$currentCity[1]}{$currentArea['city_name']}{$currentCountry['city_name']}出租房租房网"/>
+    <meta name="description" content="{$currentCity[1]}{$currentArea['city_name']}{$currentCountry['city_name']}出租房租房网为您提供最新租房信息，欢迎您来到房丫丫{$currentCity[1]}出租房租房网。"
+    />
+
+    <link href="__PUBLIC__/img/logo/title.png" type="image/x-icon" rel="icon">
+    <include file="Public:pub_css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/fyy.css">
+
+
+</head>
+<body>
+<include file="Public:pub_top"/>
+<!--<include file="Public:pub_search2"/>-->
+
+
+<div class="wrapper">
+
+    <div class="wrapper" id="divCategoryCrumbs">
+        <div class="m-crumbs">
+            当前所在位置：
+            <span href="#"><if condition="$currentArea['city_name'] neq ''">{$currentCity[1]}><else/>{$currentCity[1]}</if></span>
+            <span href="#"><if condition="($currentArea['city_name'] neq '') and ($currentCountry['city_name'] neq '') ">{$currentArea['city_name']}租房><elseif condition="($currentArea['city_name'] neq '') and ($currentCountry['city_name'] eq '')" />{$currentArea['city_name']}租房</if></span>
+            <span href="#"><if condition="$currentCountry['city_name'] neq ''">{$currentCountry['city_name']}租房</if></span>
+            <!--<em>&gt;</em><a href="/Category/1-145-0-0.html">出国留学</a>-->
+        </div>
+    </div>
+
+</div>
+<div class="wrapper u-bt" id="divFilterBox">
+
+    <!-- 分类筛选 -->
+    <div class="m-categoryfilter">
+        <dl class="m-filter-item">
+            <dt>区域：</dt>
+            <dd>
+                <foreach name="areaList" item="area" key="k">
+                    <if condition="$current['areaId'] eq $area['id']">
+                        <a class="z-cur"
+                           href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$area['id']}/money/{$current['money']}/hx/{$current['hx']}/rs/{$current['rs']}/roomstyle/{$current['roomstyle']}">{$area['city_name']}</a> 
+
+                        <else/>
+                        <a class=""
+                           href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$area['id']}/money/{$current['money']}/hx/{$current['hx']}/rs/{$current['rs']}/roomstyle/{$current['roomstyle']}">{$area['city_name']}</a>
+                    </if>
+
+                </foreach>
+
+
+            </dd>
+            <if condition="count($countryList) gt 0">
+                <dd class="m-filter-items">
+                    <foreach name="countryList" item="country" key="k">
+                        <foreach name="country" item="con">
+                            <if condition="$current['countryId'] eq $con['id']">
+
+                                <a class="z-cur"
+                                   href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$con['id']}/money/{$current['money']}/hx/{$current['hx']}/rs/{$current['rs']}/roomstyle/{$current['roomstyle']}">{$con['city_name']}</a>
+                                <else/>
+                                <a class=""
+                                   href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$con['id']}/money/{$current['money']}/hx/{$current['hx']}/rs/{$current['rs']}/roomstyle/{$current['roomstyle']}">{$con['city_name']}</a>
+                            </if>
+                        </foreach>
+
+
+                    </foreach>
+
+
+                </dd>
+            </if>
+
+        </dl>
+    </div>
+
+
+    <div class="m-categoryfilter">
+        <dl class="m-filter-item">
+            <dt>租金：</dt>
+            <dd>
+                <foreach name="money" item='m' key='k'>
+
+                    <if condition="$m['range'] eq $current['money']">
+
+                        <a class="z-cur"
+                           href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$current['countryId']}/money/{$m['range']}/hx/{$current['hx']}/rs/{$current['rs']}/roomstyle/{$current['roomstyle']}">{$m['name']}</a>
+                        <else/>
+                        <a class=""
+                           href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$current['countryId']}/money/{$m['range']}/hx/{$current['hx']}/rs/{$current['rs']}/roomstyle/{$current['roomstyle']}">{$m['name']}</a>
+
+
+                    </if>
+
+
+                </foreach>
+            </dd>
+
+        </dl>
+    </div>
+
+    <div class="m-categoryfilter">
+        <dl class="m-filter-item">
+            <dt>厅室：</dt>
+            <dd>
+                <foreach name="hx" item="hx1">
+                    <if condition="$hx1['name'] eq $current['hx']">
+                        <a class="z-cur"
+                           href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$current['countryId']}/money/{$current['money']}/hx/{$hx1['name']}/rs/{$current['rs']}/roomstyle/{$current['roomstyle']}">{$hx1['huxing']}</a>
+
+                        <else/>
+                        <a class=""
+                           href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$current['countryId']}/money/{$current['money']}/hx/{$hx1['name']}/rs/{$current['rs']}/roomstyle/{$current['roomstyle']}">{$hx1['huxing']}</a>
+
+                    </if>
+
+                </foreach>
+
+
+            </dd>
+
+        </dl>
+    </div>
+
+    <div class="m-categoryfilter">
+        <dl class="m-filter-item">
+            <dt>方式：</dt>
+            <dd>
+                <foreach name="rentStyle" item="rs">
+                    <if condition="$rs['name'] eq $current['rs']">
+                        <a class="z-cur"
+                           href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$current['countryId']}/money/{$current['money']}/hx/{$current['hx']}/rs/{$rs['name']}/roomstyle/{$current['roomstyle']}">{$rs['rent_style']}</a>
+
+                        <else/>
+                        <a class=""
+                           href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$current['countryId']}/money/{$current['money']}/hx/{$current['hx']}/rs/{$rs['name']}/roomstyle/{$current['roomstyle']}">{$rs['rent_style']}</a>
+
+                    </if>
+
+                </foreach>
+
+            </dd>
+
+        </dl>
+    </div>
+    <if condition="$current['rs'] eq 'dj'">
+
+
+        <div class="m-categoryfilter">
+            <dl class="m-filter-item">
+                <dt>卧室：</dt>
+                <dd>
+                    <foreach name="roomList" item="room">
+                        <if condition="$room['id'] eq $current['roomstyle']">
+                            <a class="z-cur"
+                               href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$current['countryId']}/money/{$current['money']}/hx/{$current['hx']}/rs/{$current['rs']}/roomstyle/{$room['id']}">{$room['room_style']}</a>
+
+                            <else/>
+                            <a class=""
+                               href="__CONTROLLER__/index/cityId/{$current['cityId']}/areaId/{$current['areaId']}/countryId/{$current['countryId']}/money/{$current['money']}/hx/{$current['hx']}/rs/{$current['rs']}/roomstyle/{$room['id']}">{$room['room_style']}</a>
+
+                        </if>
+
+                    </foreach>
+
+                </dd>
+
+            </dl>
+        </div>
+    </if>
+
+
+    <!-- 其他筛选 -->
+    <div class="wrapper mt10" id="divSearchModeBox">
+
+        <div id="searchmode-address" class="m-searchmode-item" style="display: none;">
+            <div class="m-searchmode-address" id="businessDistrictFilter">
+            </div>
+        </div>
+        <div id="searchmode-time" class="m-coursesort mt10">
+            <div title="默认排序" id="sel_city" class="u-sort">
+                <a href="/Search?cid=1&amp;ccc=40" id="btnDefaultSort" class="z-cur">默认排序</a><!--选中状加态z-cur-->
+            </div>
+            <div class="u-sort2">
+                <!--<a href="/Search?cid=1&amp;ccc=40&amp;Sort=3" title="" id="btnDateSort" class="sort-asc">最近刷新</a>-->
+                <!--切换箭头方向样式sort-asc2-->
+                <!--<a href="/Search?cid=1&amp;ccc=40&amp;Sort=1" title="" id="btnPriceSort"-->
+                <!--class="sort-asc">价格</a>&lt;!&ndash;切换箭头方向样式sort-dec2&ndash;&gt;-->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrapper bg_bdr mt10">
+    <div class="col_left w780">
+        <div class="m-ad mb10">
+
+        </div>
+        <!-- 正文列表 -->
+        <div id="divSearchResult">
+            <if condition="count($homeList) gt 0">
+                <foreach name="homeList" item="home">
+                    <div class="m-courselist"
+                         style="border-bottom: 1px dotted #d2d2d2;height: 99px;margin-bottom: 25px;">
+                        <div class="m-courselist-l pr">
+                            <div class="m-courselist-select" style="left: 0px; top: 0px;">
+                                <img src="{:C('SITE')}{$home['pic_small']}" alt="{$home['title']}"
+                                     onerror="this.src='__PUBLIC__/img/bjpic1.jpg'" style="width: 125px;height: 94px;">
+                            </div>
+                            <h2>
+                                <a style="text-decoration: none;" target="_blank"
+                                   href="/home/index/detail/id/{$home['id']}.html">
+                                    <switch name="home['rent_style']">
+                                        <case value="dj">单间&nbsp;&nbsp;</case>
+                                        <case value="zt">整套&nbsp;&nbsp;</case>
+                                        <case value="cw">床位&nbsp;&nbsp;</case>
+
+                                    </switch>
+                                    {$home['title']}</a>
+
+                            </h2>
+                            <h4></h4>
+                            <p class="u-title max-h">
+                                <switch name="home['rent_style']">
+                                    <case value="dj|cw">
+                                        <switch name="home['room_style']">
+                                            <case value="1">主卧&nbsp;&nbsp;</case>
+                                            <case value="2">次卧&nbsp;&nbsp;</case>
+                                            <case value="3">隔断&nbsp;&nbsp;</case>
+                                            <case value="4">床位&nbsp;&nbsp;</case>
+                                        </switch>
+                                        &nbsp;&nbsp;{$home['square']}㎡
+                                    </case>
+                                    <case value="zt">{$home['shi']}室{$home['ting']}厅{$home['wei']}卫&nbsp;&nbsp;{$home['square']}㎡</case>
+
+                                </switch>
+                            </p>
+                            <p class="u-title">
+                                <!--<span>-->
+
+                                <!--<i class="u-stay" style="display: block;">宽带</i>-->
+                                <!--<i class="u-video" style="display: block;">阳台</i>-->
+                                <!--<i class="u-audio" style="display: block;">空调</i>-->
+                                <!--</span>-->
+                                支付方式：{$home['style']}
+                            </p>
+
+                            <p class="u-title">
+                                来自
+                                <switch name="home['identity']">
+                                    <case value="self">个人：{$home['contact']}</case>
+                                    <case value="agent">代理人：{$home['contact']}</case>
+
+                                </switch>
+                            </p>
+                            <div class="m-courselist-select">
+                                <div class="u-price">
+                                    <div class='u-price'>￥<span>{$home['rent_money']}</span>/月</div>
+                                </div>
+
+                                <a class="u-btn4" target="_blank"
+                                   href="/home/index/detail/id/{$home['id']}/currentCity/{$currentCity[0]}.html">房源详情</a>
+
+
+                                <!--<a href="/Course/1-1-12026.html#classlist" target="_blank" id="btnReg-1-12026" class='u-btn'-->
+                                <!--data-code="12026">xxxx</a>-->
+                            </div>
+                        </div>
+                        <div class="m-courselist-r">
+                        </div>
+                        <div class="m-classbox" id="12026-ClassBox" data-keyword="" style="display: none;">
+                        </div>
+                    </div>
+                </foreach>
+
+                <!--分页-->
+                <div class="m-page">
+                    <div class="m-page">  {$pageBar} </div>
+
+
+                </div>
+                <else/>
+                <div><p>沙发是空的，马上去<a href="{:U('home/index/publish')}" style="color:#05A89A;">发布</a>吧</p></div>
+
+
+            </if>
+        </div>
+
+
+    </div>
+    <!--<div class="col_right w200">-->
+
+    <!--<div id="topRegClassList" class="m-box mb10">-->
+    <!--<div class="m-hd">-->
+    <!--<h2>推广信息</h2>-->
+    <!--</div>-->
+    <!--<div id="divTopRegClassList" class="m-bd">-->
+    <!--<ul class="txt_Toplists txt_Toplists2 mt10">-->
+    <!--<li>-->
+    <!--<em>1</em><a href="/Class/1-2591593.html" title="" target="_blank">xxxxx-->
+    <!--xxxxxxx</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<em>2</em><a href="/Class/1-2595672.html" title="" target="_blank">xxxxxxxxxxx</a>-->
+    <!--</li>-->
+
+    <!--</ul>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="m-box mt10">-->
+    <!--<div class="m-hd">-->
+    <!--<h2>最近浏览</h2>-->
+    <!--</div>-->
+    <!--<div class="m-bd">-->
+    <!--<ul id="browselist_container" class="m-txtlist mt10"></ul>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="m-ad mt10">-->
+    <!--<div id='adModel_458'></div>-->
+    <!---->
+    <!--</div>-->
+    <!--<div class="m-ad mt10">xx-->
+    <!--</div>-->
+    <!--<div class="m-ad mt10">xx-->
+    <!--</div>-->
+    <!--</div>-->
+</div>
+
+
+<include file="Public:pub_foot"/>
+
+
+</body>
+</html>
